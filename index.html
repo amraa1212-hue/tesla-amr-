@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="mn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tesla — Model 3</title>
+  <meta name="description" content="Tesla Model 3, бүрэн бие даасан жолоодлого, урамшуулал болон цэнэглэх цэгүүд.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Inter:wght@400&family=Open+Sans:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <nav class="navbar__inner" aria-label="Үндсэн цэс">
+      <div class="navbar__brand">
+        <a class="logo" href="#" aria-label="Нүүр хуудас">
+          <img src="assets/icons/logo.svg" width="70" height="36" alt="">
+        </a>
+      </div>
+
+      <ul class="navbar__menu" id="navbar-menu">
+        <li><a class="navbar__link" href="#">Model 3</a></li>
+        <li><a class="navbar__link" href="#">Model Y</a></li>
+        <li><a class="navbar__link" href="#">Cybertruck</a></li>
+        <li><a class="navbar__link" href="#">Roadster</a></li>
+        <li><a class="navbar__link" href="#">Роботакси</a></li>
+        <li class="navbar__menu-cta"><a class="btn btn--primary btn--sm" href="#">Туршилтын жолоодлого</a></li>
+      </ul>
+
+      <div class="navbar__actions">
+        <a class="btn btn--primary btn--sm navbar__cta" href="#">Туршилтын жолоодлого</a>
+        <button class="navbar__toggle" type="button" aria-controls="navbar-menu" aria-expanded="false" aria-label="Цэс нээх">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="media media--dim">
+        <img src="assets/images/hero-model-3.jpg" width="1600" height="679" alt="Мөнгөлөг Tesla Model 3 уулархаг замаар явж байна" fetchpriority="high">
+      </div>
+      <div class="hero__content">
+        <div class="hero__text">
+          <h1 class="h1">Model 3</h1>
+          <p class="text-medium">1.99% APR available</p>
+        </div>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#">Button</a>
+          <a class="btn btn--secondary" href="#">Button</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Full Self-Driving -->
+    <section class="section">
+      <div class="container feature">
+        <div class="feature__content">
+          <h2 class="h2">Бүрэн бие даасан жолоодлого (хяналттай)</h2>
+
+          <div class="feature__stats">
+            <div class="feature__stat">
+              <p class="feature__stat-value">7x</p>
+              <p class="feature__stat-label">Бага мөргөлдөөн</p>
+            </div>
+            <div class="feature__stat">
+              <p class="feature__stat-value">17,034,842,<wbr>565</p>
+              <p class="feature__stat-label">Миль туулсан</p>
+            </div>
+          </div>
+
+          <div class="feature__actions">
+            <a class="btn btn--secondary" href="#">Туршилт товлох</a>
+            <a class="btn btn--link" href="#">
+              Дэлгэрэнгүй
+              <img class="btn__icon" src="assets/icons/chevron-right.svg" width="24" height="24" alt="">
+            </a>
+          </div>
+        </div>
+
+        <button class="lightbox" type="button" aria-label="Видео тоглуулах">
+          <span class="media media--dim">
+            <img src="assets/images/fsd-video.png" width="1440" height="1440" alt="">
+          </span>
+          <img class="lightbox__play" src="assets/icons/play-button.svg" width="64" height="64" alt="">
+        </button>
+      </div>
+    </section>
+
+    <!-- Current offers -->
+    <section class="section">
+      <div class="container">
+        <div class="offers__header">
+          <h2 class="h2">Одоогийн урамшуулал</h2>
+          <p class="text-medium">Tesla машинуудын хязгаартай хугацааны урамшууллуудтай танилцаарай.</p>
+        </div>
+
+        <div class="slider" data-slider>
+          <div class="slider__track" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Урамшууллууд">
+            <article class="offer-card">
+              <div class="media media--dim">
+                <img src="assets/images/offer-model-y-l.jpg" width="1536" height="870" alt="Цагаан Model Y L ойн дундах замаар явж байна" loading="lazy">
+              </div>
+              <p class="offer-card__tag">Long Wheelbase Midsize SUV</p>
+              <div class="offer-card__footer">
+                <div class="offer-card__info">
+                  <h3 class="offer-card__title">Model Y L Premium</h3>
+                  <p>Starting at $61,9902</p>
+                </div>
+                <img class="offer-card__logo" src="assets/icons/placeholder-logo-1.svg" width="120" height="48" alt="">
+              </div>
+            </article>
+
+            <article class="offer-card">
+              <div class="media media--dim">
+                <img src="assets/images/offer-model-y.jpg" width="1536" height="870" alt="Цагаан Model Y уулын замаар явж байна" loading="lazy">
+              </div>
+              <p class="offer-card__tag">Midsize SUV</p>
+              <div class="offer-card__footer">
+                <div class="offer-card__info">
+                  <h3 class="offer-card__title">Model Y</h3>
+                  <p>Lease From $499/mo</p>
+                </div>
+                <img class="offer-card__logo" src="assets/icons/placeholder-logo-2.svg" width="120" height="48" alt="">
+              </div>
+            </article>
+
+            <article class="offer-card">
+              <div class="media media--dim">
+                <img src="assets/images/offer-placeholder.png" width="1440" height="800" alt="" loading="lazy">
+              </div>
+              <p class="offer-card__quote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat."</p>
+              <div class="offer-card__footer">
+                <div class="offer-card__info">
+                  <h3 class="offer-card__title">Name Surname</h3>
+                  <p>Position, Company name</p>
+                </div>
+                <img class="offer-card__logo" src="assets/icons/placeholder-logo-1.svg" width="120" height="48" alt="">
+              </div>
+            </article>
+
+            <article class="offer-card">
+              <div class="media media--dim">
+                <img src="assets/images/offer-placeholder.png" width="1440" height="800" alt="" loading="lazy">
+              </div>
+              <p class="offer-card__quote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat."</p>
+              <div class="offer-card__footer">
+                <div class="offer-card__info">
+                  <h3 class="offer-card__title">Name Surname</h3>
+                  <p>Position, Company name</p>
+                </div>
+                <img class="offer-card__logo" src="assets/icons/placeholder-logo-2.svg" width="120" height="48" alt="">
+              </div>
+            </article>
+
+            <article class="offer-card">
+              <div class="media media--dim">
+                <img src="assets/images/offer-placeholder.png" width="1440" height="800" alt="" loading="lazy">
+              </div>
+              <p class="offer-card__quote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat."</p>
+              <div class="offer-card__footer">
+                <div class="offer-card__info">
+                  <h3 class="offer-card__title">Name Surname</h3>
+                  <p>Position, Company name</p>
+                </div>
+                <img class="offer-card__logo" src="assets/icons/placeholder-logo-1.svg" width="120" height="48" alt="">
+              </div>
+            </article>
+
+            <article class="offer-card">
+              <div class="media media--dim">
+                <img src="assets/images/offer-placeholder.png" width="1440" height="800" alt="" loading="lazy">
+              </div>
+              <p class="offer-card__quote">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat."</p>
+              <div class="offer-card__footer">
+                <div class="offer-card__info">
+                  <h3 class="offer-card__title">Name Surname</h3>
+                  <p>Position, Company name</p>
+                </div>
+                <img class="offer-card__logo" src="assets/icons/placeholder-logo-2.svg" width="120" height="48" alt="">
+              </div>
+            </article>
+          </div>
+
+          <div class="slider__controls">
+            <div class="slider__dots" aria-label="Слайд сонгох"></div>
+            <div class="slider__arrows">
+              <button class="slider__arrow" type="button" data-slider-prev aria-label="Өмнөх">
+                <img src="assets/icons/arrow-back.svg" width="24" height="24" alt="">
+              </button>
+              <button class="slider__arrow" type="button" data-slider-next aria-label="Дараах">
+                <img src="assets/icons/arrow-forward.svg" width="24" height="24" alt="">
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA: Recommend -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-card">
+          <div class="cta-card__body">
+            <div class="cta-card__text">
+              <h2 class="h2">Санал болгох</h2>
+              <p class="text-medium">Tesla автомашины загваруудтай танилцаарай</p>
+            </div>
+            <a class="btn btn--primary" href="#">Дэлгэрэнгүй</a>
+          </div>
+          <div class="cta-card__media">
+            <img src="assets/images/cta-recommend.jpg" width="790" height="990" alt="Cybertruck, Model Y болон Model 3 зэрэгцэн зогсож байна" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA: Shareholder meeting -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-card">
+          <div class="cta-card__body">
+            <div class="cta-card__text">
+              <h2 class="h2">2026 оны Хувьцаа эзэмшигчдийн ээлжит хурал</h2>
+              <p class="text-medium">Tesla-ийн ирээдүй таны гарт. Таны санал яагаад чухал болохыг мэдэж аваарай.</p>
+            </div>
+            <a class="btn btn--primary" href="#">Дэлгэрэнгүй</a>
+          </div>
+          <div class="cta-card__media">
+            <img src="assets/images/cta-shareholder.jpg" width="1831" height="2240" alt="Roadster-ийн арын төрх, харанхуй дэвсгэр дээр" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Charging -->
+    <section class="charging">
+      <div class="charging__header">
+        <div class="container">
+          <h2 class="h1 charging__title">Цэнэглэх цэг</h2>
+        </div>
+      </div>
+      <img class="charging__map" src="assets/images/charging-map.png" width="2560" height="1012" alt="АНУ дахь Tesla цэнэглэх цэгүүдийн газрын зураг" loading="lazy">
+    </section>
+
+    <!-- My location / stats -->
+    <section class="section">
+      <div class="container locations">
+        <div class="locations__content">
+          <div class="locations__text">
+            <h2 class="h2">Миний байршил</h2>
+            <p class="text-medium">Таны ойролцоох Tesla Supercharger болон Destination Charger-ийн сүлжээг үзээрэй.</p>
+          </div>
+          <div class="feature__actions">
+            <a class="btn btn--secondary" href="#">Очих газрын цэнэглэгч</a>
+            <a class="btn btn--link" href="#">
+              Дэлгэрэнгүй
+              <img class="btn__icon" src="assets/icons/chevron-right.svg" width="24" height="24" alt="">
+            </a>
+          </div>
+        </div>
+
+        <div class="locations__stats">
+          <div class="stat">
+            <p class="stat__value">39,653</p>
+            <p class="stat__label">Түргэн цэнэглэгч</p>
+          </div>
+          <div class="stat">
+            <p class="stat__value">401</p>
+            <p class="stat__label">Суурин цэнэглэх төв</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__top">
+        <a class="logo" href="#" aria-label="Нүүр хуудас">
+          <img src="assets/icons/logo.svg" width="70" height="36" alt="">
+        </a>
+        <ul class="footer__links">
+          <li><a href="#">Model 3</a></li>
+          <li><a href="#">Model Y</a></li>
+          <li><a href="#">Cybertruck</a></li>
+          <li><a href="#">Model S</a></li>
+          <li><a href="#">Roadster</a></li>
+          <li><a href="#">Роботакси</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__bottom">
+        <img class="footer__divider" src="assets/icons/divider.svg" width="1280" height="1" alt="">
+        <div class="footer__row">
+          <p>© 2025 Tesla, Inc. All rights reserved.</p>
+          <ul class="footer__legal">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Cookies Settings</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
