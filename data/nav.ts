@@ -26,4 +26,7 @@ export const LEGAL_LINKS: NavLink[] = [
 export const NAV_LABEL = "Үндсэн цэс";
 export const TEST_DRIVE_LABEL = "Туршилтын жолоодлого";
 export const TEST_DRIVE_URL = "https://www.tesla.com/drive";
+/** Signed-out visitors are sent on to /admin/login by proxy.ts. */
+export const LOGIN_LABEL = "Нэвтрэх";
+export const LOGIN_URL = "/admin";
 export const COPYRIGHT = "© 2025 Tesla, Inc. All rights reserved.";

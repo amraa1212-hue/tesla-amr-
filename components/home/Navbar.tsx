@@ -3,8 +3,17 @@
 import { useState } from "react";
 import { AppLink } from "@/components/ui/AppLink";
 import { Logo } from "@/components/ui/Logo";
-import { MODEL_LINKS, NAV_LABEL, TEST_DRIVE_LABEL } from "@/data/nav";
+import { LOGIN_LABEL, LOGIN_URL, MODEL_LINKS, NAV_LABEL, TEST_DRIVE_LABEL } from "@/data/nav";
 import { Button } from "./ui";
+
+function UserIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} className="size-5 shrink-0" aria-hidden>
+      <circle cx="12" cy="8" r="4" />
+      <path d="M4.5 20c1.4-3.4 4.3-5 7.5-5s6.1 1.6 7.5 5" strokeLinecap="round" />
+    </svg>
+  );
+}
 
 /** Below 992px the menu drops down under the bar. */
 export function Navbar() {
@@ -32,14 +41,26 @@ export function Navbar() {
               </AppLink>
             </li>
           ))}
+          {/* Buttons move from the bar into the menu: login below 768px, test drive below 480px */}
           <li className="hidden max-sm:block max-sm:pt-3">
             <Button href="#" size="sm" className="w-full">
               {TEST_DRIVE_LABEL}
             </Button>
           </li>
+          <li className="hidden pt-3 max-md:block">
+            <Button href={LOGIN_URL} variant="secondary" size="sm" className="w-full">
+              <UserIcon />
+              {LOGIN_LABEL}
+            </Button>
+          </li>
         </ul>
 
-        <div className="flex flex-[1_0_0] items-center justify-end gap-4 max-lg:flex-none">
+        <div className="flex flex-[1_0_0] items-center justify-end gap-4 max-lg:flex-none lg:max-[68rem]:gap-3">
+          {/* Icon only from 992px to 1088px, where the full label would squeeze the logo */}
+          <Button href={LOGIN_URL} variant="secondary" size="sm" className="max-md:hidden lg:max-[68rem]:px-2">
+            <UserIcon />
+            <span className="lg:max-[68rem]:sr-only">{LOGIN_LABEL}</span>
+          </Button>
           <Button href="#" size="sm" className="max-sm:hidden">
             {TEST_DRIVE_LABEL}
           </Button>
