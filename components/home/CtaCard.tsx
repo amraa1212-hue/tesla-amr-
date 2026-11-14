@@ -3,7 +3,7 @@ import type { Cta } from "@/data/home";
 import { Button, h2, Section } from "./ui";
 
 /** Copy and a button beside an image; stacks below 992px. */
-export function CtaCard({ title, text, image }: Cta) {
+export function CtaCard({ title, text, href = "#", image }: Cta) {
   return (
     <Section>
       <div className="flex overflow-hidden bg-surface max-lg:flex-col">
@@ -12,7 +12,7 @@ export function CtaCard({ title, text, image }: Cta) {
             <h2 className={h2}>{title}</h2>
             <p className="text-medium">{text}</p>
           </div>
-          <Button href="#">Дэлгэрэнгүй</Button>
+          <Button href={href}>Дэлгэрэнгүй</Button>
         </div>
         <div className="relative min-w-0 flex-[1_1_0] max-lg:aspect-[4/3] max-lg:flex-none">
           <Image src={image.src} alt={image.alt} fill sizes="(max-width: 991px) 100vw, 640px" className="object-cover" />

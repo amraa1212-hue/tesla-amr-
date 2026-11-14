@@ -1,5 +1,5 @@
 import { Slider } from "@/components/ui/Slider";
-import { OFFERS, type Offer } from "@/data/home";
+import type { Offer } from "@/data/home";
 import { h2, MediaCover, Section } from "./ui";
 
 function OfferCard({ image, tag, quote, title, subtitle, logo }: Offer) {
@@ -19,7 +19,8 @@ function OfferCard({ image, tag, quote, title, subtitle, logo }: Offer) {
   );
 }
 
-export function OffersSection() {
+export function OffersSection({ offers }: { offers: Offer[] }) {
+  if (!offers.length) return null;
   return (
     <Section>
       <div className="mb-20 flex max-w-[768px] flex-col gap-6 max-lg:mb-12">
@@ -27,7 +28,7 @@ export function OffersSection() {
         <p className="text-medium">Tesla машинуудын хязгаартай хугацааны урамшууллуудтай танилцаарай.</p>
       </div>
       <Slider variant="home" label="Урамшууллууд">
-        {OFFERS.map((offer, i) => (
+        {offers.map((offer, i) => (
           <OfferCard key={i} {...offer} />
         ))}
       </Slider>

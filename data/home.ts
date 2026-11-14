@@ -48,7 +48,8 @@ export const OFFERS: Offer[] = [
   { image: PLACEHOLDER, quote: QUOTE, title: "Name Surname", subtitle: "Position, Company name", logo: LOGO_2 },
 ];
 
-export type Cta = { title: string; text: string; image: Img };
+/** `href` is where the "Дэлгэрэнгүй" button goes ("#" when omitted). */
+export type Cta = { title: string; text: string; href?: string; image: Img };
 
 export const CTAS: Cta[] = [
   {
@@ -73,7 +74,10 @@ export const CTAS: Cta[] = [
   },
 ];
 
-export const CHARGING_STATS = [
+export type ChargingStat = { value: string; label: string };
+
+/* The lists above are the fallback content; the live content is edited in /admin (Supabase). */
+export const CHARGING_STATS: ChargingStat[] = [
   { value: "39,653", label: "Түргэн цэнэглэгч" },
   { value: "401", label: "Суурин цэнэглэх төв" },
 ];

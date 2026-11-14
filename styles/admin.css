@@ -1,0 +1,29 @@
+/* ==========================================================================
+   Admin panel. Loaded only by app/(admin)/layout.tsx.
+   Uses Tailwind's default palette; nothing here reaches the public pages.
+   ========================================================================== */
+@import "tailwindcss" source(none);
+
+@source "../components/admin";
+@source "../app";
+
+@theme {
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --color-ink: #171a20;
+  --color-accent: #3e6ae1;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+
+  body {
+    @apply bg-neutral-50 font-sans text-sm text-ink antialiased;
+  }
+
+  /* Hide the default disclosure triangle; rows draw their own chevron. */
+  summary::-webkit-details-marker {
+    display: none;
+  }
+}
