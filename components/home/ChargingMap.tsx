@@ -5,7 +5,7 @@ import { h1 } from "./ui";
 export function ChargingMap() {
   return (
     <section className="overflow-hidden bg-background">
-      <div className="px-page py-section-lg">
+      <div className="px-gutter py-section-lg">
         <div className="mx-auto w-full max-w-page">
           <h2 className={cn(h1, "max-w-[768px]")}>Цэнэглэх цэг</h2>
         </div>

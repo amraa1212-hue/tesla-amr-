@@ -4,7 +4,7 @@ import { COPYRIGHT, FOOTER_LINKS, LEGAL_LINKS } from "@/data/nav";
 
 export function Footer() {
   return (
-    <footer className="bg-background px-page py-section-md">
+    <footer className="bg-background px-gutter py-section-md">
       <div className="mx-auto flex w-full max-w-page flex-col items-center gap-20 max-md:gap-12">
         <div className="flex w-full max-w-[480px] flex-col items-center gap-8">
           <Logo className="justify-center" imgClassName="h-auto w-[120px]" />

@@ -18,7 +18,7 @@ export function Section({
   children: ReactNode;
 }) {
   return (
-    <section className={cn("overflow-hidden bg-background px-page py-section-lg", className)}>
+    <section className={cn("overflow-hidden bg-background px-gutter py-section-lg", className)}>
       <div className={cn("mx-auto w-full max-w-page", containerClassName)}>{children}</div>
     </section>
   );

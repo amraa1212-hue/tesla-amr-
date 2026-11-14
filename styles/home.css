@@ -42,7 +42,7 @@
   --text-stat: 80px;
 
   /* Spacing */
-  --spacing-page: 64px;
+  --spacing-gutter: 64px;
   --spacing-section-lg: 112px;
   --spacing-section-md: 80px;
   --container-page: 1280px;
@@ -55,7 +55,7 @@
 @layer base {
   @media (width < 62rem) {
     :root {
-      --spacing-page: 32px;
+      --spacing-gutter: 32px;
       --spacing-section-lg: 80px;
       --spacing-section-md: 64px;
       --text-h1: 56px;
@@ -66,7 +66,7 @@
 
   @media (width < 48rem) {
     :root {
-      --spacing-page: 20px;
+      --spacing-gutter: 20px;
       --spacing-section-lg: 64px;
       --spacing-section-md: 48px;
       --text-h1: 44px;

@@ -2,7 +2,7 @@ import { Button, h1, MediaCover } from "./ui";
 
 export function Hero() {
   return (
-    <section className="relative h-[900px] overflow-hidden px-page text-white max-lg:h-[720px] max-md:h-[560px]">
+    <section className="relative h-[900px] overflow-hidden px-gutter text-white max-lg:h-[720px] max-md:h-[560px]">
       <MediaCover
         src="/assets/images/hero-model-3.jpg"
         width={1600}

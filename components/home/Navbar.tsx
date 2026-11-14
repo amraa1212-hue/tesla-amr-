@@ -21,7 +21,7 @@ export function Navbar() {
   const bar = "h-0.5 w-6 bg-current transition duration-200 ease-[ease]";
 
   return (
-    <header data-open={open ? "" : undefined} className="group/nav relative z-10 bg-background px-page">
+    <header data-open={open ? "" : undefined} className="group/nav relative z-10 bg-background px-gutter">
       <nav aria-label={NAV_LABEL} className="flex h-18 items-center gap-8">
         <div className="flex flex-[1_0_0] items-center max-lg:flex-[1_1_auto]">
           <Logo className="justify-center" imgClassName="h-auto w-[120px]" />
@@ -29,7 +29,7 @@ export function Navbar() {
 
         <ul
           id="navbar-menu"
-          className="flex items-center gap-8 max-lg:absolute max-lg:inset-x-0 max-lg:top-18 max-lg:hidden max-lg:flex-col max-lg:items-stretch max-lg:gap-0 max-lg:border-b max-lg:border-border max-lg:bg-background max-lg:px-page max-lg:pt-2 max-lg:pb-6 max-lg:group-data-[open]/nav:flex"
+          className="flex items-center gap-8 max-lg:absolute max-lg:inset-x-0 max-lg:top-18 max-lg:hidden max-lg:flex-col max-lg:items-stretch max-lg:gap-0 max-lg:border-b max-lg:border-border max-lg:bg-background max-lg:px-gutter max-lg:pt-2 max-lg:pb-6 max-lg:group-data-[open]/nav:flex"
         >
           {MODEL_LINKS.map((link) => (
             <li key={link.label}>
