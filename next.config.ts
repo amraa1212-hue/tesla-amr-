@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: supabaseUrl ? [new URL(`${supabaseUrl}/storage/v1/object/public/**`)] : [],
   },
+  // The static design-system styleguide (public/styleguide/index.html) keeps its old URL.
+  async rewrites() {
+    return [{ source: "/styleguide", destination: "/styleguide/index.html" }];
+  },
 };
 
 export default nextConfig;
