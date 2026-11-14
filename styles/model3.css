@@ -1,0 +1,350 @@
+/* ==========================================================================
+   Model 3 page design system.
+   Loaded only by app/(model3)/layout.tsx, so the home page is unaffected.
+   `static` keeps every token as a CSS variable: the motion code reads some
+   of them (accent, contour colours) at runtime.
+   ========================================================================== */
+@import "tailwindcss" source(none);
+
+@source "../components/model3";
+@source "../components/motion";
+@source "../components/ui";
+
+/* Context of the surrounding section: `on-dark:text-accent` */
+@custom-variant on-dark (&:where(.surface-dark *));
+@custom-variant on-light (&:where(.surface-light *));
+
+@theme static {
+  /* Tier 1: raw (the only place literal colours appear) */
+  --color-*: initial;
+  --color-ice-50: #f7fafb;
+  --color-ice-100: #ebeef1;
+  --color-ice-200: #dfe5e9;
+  --color-steel-400: #b6c1c8;
+  --color-ink-950: #090a0b;
+  --color-ink-900: #0e0f14;
+  --color-ink-800: #1b1d24;
+  --color-ink-700: #2a2d36;
+  --color-ink-a35: rgb(9 10 11 / 0.35);
+  --color-cyan-400: #02d2e3;
+  --color-cyan-a25: rgb(2 210 227 / 0.25);
+  --color-white: #fff;
+
+  /* Tier 2: roles */
+  --color-background: var(--color-ice-50);
+  --color-foreground: var(--color-ink-950);
+  --color-foreground-muted: var(--color-ink-a35);
+  --color-surface-black: var(--color-ink-950);
+  --color-surface-dark: var(--color-ink-900);
+  --color-surface-dark-raised: var(--color-ink-800);
+  --color-surface-soft: var(--color-ice-200);
+  --color-on-dark: var(--color-white);
+  --color-on-dark-muted: var(--color-steel-400);
+  --color-on-dark-faint: rgb(255 255 255 / 0.4);
+  --color-border-muted: var(--color-ice-200);
+  --color-border-on-dark: var(--color-ink-700);
+  --color-accent: var(--color-cyan-400);
+  --color-accent-muted: var(--color-cyan-a25);
+  --color-contour-light: rgb(9 10 11 / 0.08);
+  --color-contour-dark: rgb(255 255 255 / 0.1);
+  --color-plate-fill: rgb(255 255 255 / 0.1);
+  --color-plate-outline: #535450;
+  --color-rail: rgb(255 255 255 / 0.2);
+
+  --ease-entrance: cubic-bezier(0.2, 0, 0, 1);
+  --ease-plate: cubic-bezier(0.33, 0, 0, 1);
+
+  /* Type. Space Grotesk has no Cyrillic; Manrope covers Mongolian text */
+  --font-display: var(--font-oswald), "Arial Narrow", sans-serif;
+  --font-ui: var(--font-space-grotesk), var(--font-manrope), system-ui, sans-serif;
+
+  --text-impact: 6rem;
+  --text-display-lg: 4.375rem;
+  --text-display-sm: 3.4375rem;
+  --text-display: 3.25rem;
+  --text-heading: 2.375rem;
+  --text-year: 2.25rem;
+  --text-title: 1.25rem;
+  --text-lead: 1.125rem;
+  --text-lead--line-height: 1.1;
+  --text-label: 1rem;
+  --text-body: 0.875rem;
+  --text-eyebrow: 0.75rem;
+
+  /* Layout */
+  --spacing-gutter: 4rem;
+  --spacing-section: 8rem;
+  --container-page: 80rem;
+}
+
+/* ========================================================================== */
+/* Base                                                                       */
+/* ========================================================================== */
+@layer base {
+  :root {
+    --duration-fast: 150ms;
+    --duration-normal: 250ms;
+    --duration-plate: 700ms;
+  }
+
+  @media (width < 80rem) {
+    :root {
+      --spacing-gutter: 2rem;
+      --spacing-section: 6rem;
+    }
+  }
+
+  @media (width < 64rem) {
+    :root {
+      --text-impact: 4.375rem;
+    }
+  }
+
+  @media (width < 48rem) {
+    :root {
+      --spacing-gutter: 1.25rem;
+      --spacing-section: 4.5rem;
+      --text-display: 2.5rem;
+    }
+  }
+
+  @media (width < 40rem) {
+    :root {
+      --text-impact: 3.5rem;
+    }
+  }
+
+  /* Root scale: 1rem = 16px at 1440, fluid above 1280 */
+  html {
+    font-size: 0.833333vw;
+    overflow-x: clip;
+  }
+  @media (max-width: 1440px) {
+    html {
+      font-size: 1.111111vw;
+    }
+  }
+  @media (max-width: 1279px) {
+    html {
+      font-size: 16px;
+    }
+  }
+
+  /* Lenis */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-ui);
+    font-size: var(--text-body);
+    line-height: 1.1;
+    text-transform: uppercase;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+
+  button {
+    text-transform: inherit;
+  }
+  button:not(:disabled) {
+    cursor: pointer;
+  }
+
+  sup {
+    position: static;
+    vertical-align: super;
+    font-size: 0.6em;
+    line-height: 0;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  /* Surfaces */
+  .surface-light {
+    background: var(--color-background);
+    color: var(--color-foreground);
+  }
+  .surface-dark {
+    background: var(--color-surface-black);
+    color: var(--color-on-dark);
+  }
+  .surface-dark p {
+    color: var(--color-on-dark-muted);
+  }
+
+  /* Motion initial states (only when JS runs and motion is allowed) */
+  .motion [data-reveal],
+  .motion [data-split] {
+    opacity: 0;
+  }
+}
+
+/* ========================================================================== */
+/* Components: the few pieces that are clearer as CSS than as utilities       */
+/* ========================================================================== */
+@layer components {
+  .h1,
+  .h2,
+  .h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 0.95;
+  }
+
+  .h1 {
+    font-size: var(--text-impact);
+  }
+
+  .h3 {
+    font-size: var(--text-heading);
+  }
+
+  /* Section title: accent on dark, ink on light; detached dot; accent rule below */
+  .h2 {
+    position: relative;
+    font-size: var(--text-display-sm);
+    max-width: 18ch;
+    margin-bottom: 1.5rem;
+    color: var(--color-foreground);
+  }
+
+  .surface-dark .h2 {
+    color: var(--color-accent);
+  }
+
+  .h2::after,
+  .h1-dot::after {
+    content: "." / "";
+    color: var(--color-accent);
+  }
+
+  .surface-dark .h2::after {
+    color: var(--color-on-dark);
+  }
+
+  .h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: calc(100% + 0.75rem);
+    width: 1.5rem;
+    height: 0.125rem;
+    background: var(--color-accent);
+    transform: scaleX(var(--bar, 1));
+    transform-origin: left;
+  }
+
+  @media (width < 80rem) {
+    .h2 {
+      font-size: var(--text-display);
+    }
+  }
+
+  @media (width < 48rem) {
+    .h2 {
+      font-size: 2.5rem;
+    }
+  }
+
+  /* Hero: fade the image into the page below 1280px */
+  .hero-ramp {
+    display: none;
+  }
+
+  @media (width < 80rem) {
+    .hero-ramp {
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 22%;
+      z-index: 1;
+      pointer-events: none;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        color-mix(in srgb, var(--color-background) 15%, transparent) 20%,
+        color-mix(in srgb, var(--color-background) 40%, transparent) 40%,
+        color-mix(in srgb, var(--color-background) 70%, transparent) 60%,
+        color-mix(in srgb, var(--color-background) 90%, transparent) 80%,
+        var(--color-background) 100%
+      );
+    }
+  }
+
+  /* Strip (Always connected): crawling dashed connector, square dot, pulse */
+  .strip-line {
+    position: absolute;
+    top: 0.3125rem;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-image: repeating-linear-gradient(90deg, var(--color-rail) 0 7px, transparent 7px 18.45px);
+    background-position-x: var(--dash, 0px);
+  }
+
+  @media (width < 80rem) {
+    .strip-line {
+      display: none;
+    }
+  }
+
+  .strip-item::before {
+    content: "";
+    position: absolute;
+    top: -2.5rem;
+    left: 1rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    background: var(--color-on-dark-faint);
+    transition: background-color var(--duration-normal) var(--ease-plate);
+  }
+
+  .strip-item::after {
+    content: "";
+    position: absolute;
+    top: calc(-2.5rem - 0.4375rem);
+    left: calc(1rem - 0.4375rem);
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 1px solid var(--color-accent);
+    opacity: 0;
+    transform: scale(var(--pulse-scale, 1));
+    pointer-events: none;
+  }
+
+  .strip-item[data-active]::before {
+    background: var(--color-accent);
+  }
+
+  .strip-item[data-active]::after {
+    opacity: var(--pulse-opacity, 0);
+  }
+
+  .strip-item .bracket-corner {
+    opacity: 0;
+    transition: opacity var(--duration-normal) var(--ease-plate);
+  }
+
+  .strip-item[data-active] .bracket-corner {
+    opacity: 1;
+  }
+}

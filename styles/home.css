@@ -1,0 +1,106 @@
+/* ==========================================================================
+   Home page design system (from Figma variables).
+   Loaded only by app/(home)/layout.tsx, so it never reaches /model3.
+   ========================================================================== */
+@import "tailwindcss" source(none);
+
+@source "../components/home";
+@source "../components/ui";
+
+@theme static {
+  /* Breakpoints of this design: 480 / 768 / 992 */
+  --breakpoint-*: initial;
+  --breakpoint-sm: 30rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 62rem;
+
+  /* Color */
+  --color-*: initial;
+  --color-background: #fefefe; /* color-scheme-1/background */
+  --color-surface: #fefdfd; /* color-scheme-1/foreground */
+  --color-foreground: #05090c; /* color-scheme-1/text, neutral-darkest */
+  --color-border: rgba(5, 9, 12, 0.15);
+  --color-primary: #67abe7; /* cornflower-blue */
+  --color-primary-hover: #4e9be0;
+  --color-white: #fff;
+  --color-neutral-5: rgba(5, 9, 12, 0.05);
+  --color-neutral-10: rgba(5, 9, 12, 0.1);
+  --color-overlay: rgba(0, 0, 0, 0.4);
+
+  /* Typography. Crimson Text has no Cyrillic glyphs, so Cyrillic falls back
+     to Open Sans, matching how the Figma file renders. */
+  --font-heading: var(--font-inter), system-ui, sans-serif;
+  --font-body: var(--font-crimson), var(--font-open-sans), sans-serif;
+  --font-alt: var(--font-roboto), system-ui, sans-serif;
+
+  --text-h1: 72px;
+  --text-h2: 52px;
+  --text-h6: 22px;
+  --text-medium: 18px;
+  --text-regular: 16px;
+  --text-small: 14px;
+  --text-stat: 80px;
+
+  /* Spacing */
+  --spacing-page: 64px;
+  --spacing-section-lg: 112px;
+  --spacing-section-md: 80px;
+  --container-page: 1280px;
+
+  /* Radius */
+  --radius-md: 12px;
+  --radius-sm: 8px;
+}
+
+@layer base {
+  @media (width < 62rem) {
+    :root {
+      --spacing-page: 32px;
+      --spacing-section-lg: 80px;
+      --spacing-section-md: 64px;
+      --text-h1: 56px;
+      --text-h2: 44px;
+      --text-stat: 64px;
+    }
+  }
+
+  @media (width < 48rem) {
+    :root {
+      --spacing-page: 20px;
+      --spacing-section-lg: 64px;
+      --spacing-section-md: 48px;
+      --text-h1: 44px;
+      --text-h2: 36px;
+      --text-medium: 16px;
+      --text-stat: 56px;
+    }
+  }
+
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    font-size: var(--text-regular);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  button:not(:disabled) {
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      transition: none !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
