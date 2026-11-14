@@ -1,0 +1,1049 @@
+<!doctype html>
+<html lang="mn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Styleguide — Model 3 дизайн систем | Tesla</title>
+  <meta name="description" content="Model 3 хуудасны дизайн системийн лавлах: өнгө, үсэг, зай, хэлбэр, шугам, бүрхүүл, дүрс, компонент, хэсгүүд, хөдөлгөөн.">
+  <meta name="robots" content="noindex">
+
+  <script>
+    (function (d) {
+      d.classList.add("js");
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      d.classList.add("motion");
+      setTimeout(function () { if (!window.__m3Ready) d.classList.remove("motion"); }, 3000);
+    })(document.documentElement);
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Oswald:wght@500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/model3.css">
+  <link rel="stylesheet" href="../css/styleguide.css">
+</head>
+<body class="sg">
+
+  <!-- Shared clip path for stepped-corner image plates (same as model3.html) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <clipPath id="plate-clip" clipPathUnits="objectBoundingBox">
+        <path d="M 0.01915,0.00107H 0.98085C 0.98574,0.00107 0.99044,0.00300 0.99390,0.00642C 0.99736,0.00984 0.99930,0.01449 0.99930,0.01933V 0.88815C 0.99930,0.89299 0.99736,0.89763 0.99390,0.90105C 0.99044,0.90448 0.98574,0.90640 0.98085,0.90640H 0.64733C 0.63864,0.90640 0.63007,0.90834 0.62224,0.91206C 0.61442,0.91579 0.60754,0.92122 0.60212,0.92794L 0.56153,0.97830C 0.55635,0.98474 0.54976,0.98993 0.54227,0.99350C 0.53478,0.99707 0.52656,0.99892 0.51825,0.99892H 0.01915C 0.01426,0.99892 0.00956,0.99700 0.00610,0.99358C 0.00264,0.99016 0.00070,0.98551 0.00070,0.98067V 0.01933C 0.00070,0.01449 0.00264,0.00984 0.00610,0.00642C 0.00956,0.00300 0.01426,0.00107 0.01915,0.00107Z"/>
+      </clipPath>
+    </defs>
+  </svg>
+
+  <!-- Navbar -->
+  <header class="navbar" data-reveal="block">
+    <nav class="navbar__inner" aria-label="Үндсэн цэс">
+      <div class="navbar__brand">
+        <a class="logo" href="../index.html" aria-label="Нүүр хуудас">
+          <img src="../assets/icons/tesla-wordmark.svg" width="120" height="12" alt="">
+        </a>
+      </div>
+      <div class="nav-sheet">
+        <ul class="navbar__menu" id="navbar-menu">
+          <li><a class="navbar__link" href="../model3.html">Model 3</a></li>
+          <li><a class="navbar__link" href="#color">Өнгө</a></li>
+          <li><a class="navbar__link" href="#type">Үсэг</a></li>
+          <li><a class="navbar__link" href="#components">Компонент</a></li>
+          <li><a class="navbar__link" href="#motion">Хөдөлгөөн</a></li>
+          <li class="navbar__menu-cta"><a class="chamfer" data-chamfer href="../model3.html">Model 3 хуудас</a></li>
+        </ul>
+      </div>
+      <div class="navbar__actions">
+        <a class="text-btn navbar__cta" data-text-btn href="../model3.html">Model 3 хуудас</a>
+        <button class="navbar__toggle" type="button" aria-controls="navbar-menu" aria-expanded="false" aria-label="Цэс нээх">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Intro ============================================================ -->
+    <section class="section surface-light sg-intro" data-contour>
+      <div class="container">
+        <p class="eyebrow">Tesla · Model 3 дизайн систем</p>
+        <h1 class="h1">Styleguide</h1>
+        <p class="sg-prose">Model 3 хуудасны дизайн системийн лавлах. Токенуудын утгыг <code>css/model3.css</code>-ээс хуудас ачаалах үед шууд уншдаг тул код өөрчлөгдөхөд энэ хуудас дагаж шинэчлэгдэнэ. Компонентууд бодит класс, бодит скриптээрээ ажиллаж байгаа.</p>
+        <p class="sg-prose sg-muted">Нүүр хуудас (<code>index.html</code>) одоогоор хуучин <code>css/styles.css</code> системтэй. Түүний токенуудыг 03-р хэсгийн төгсгөлд харьцуулж үзүүлэв. Баруун доод буланд байгаа <strong>Гадаргуу</strong> товчоор компонентуудыг цайвар болон бараан дэвсгэр дээр сольж харж болно.</p>
+
+        <nav class="sg-toc" aria-label="Агуулга">
+          <a href="#principles"><span>01</span><span>Зарчим</span></a>
+          <a href="#brand"><span>02</span><span>Брэнд</span></a>
+          <a href="#color"><span>03</span><span>Өнгө</span></a>
+          <a href="#type"><span>04</span><span>Үсэг</span></a>
+          <a href="#spacing"><span>05</span><span>Зай</span></a>
+          <a href="#shape"><span>06</span><span>Хэлбэр</span></a>
+          <a href="#stroke"><span>07</span><span>Шугам</span></a>
+          <a href="#overlay"><span>08</span><span>Сүүдэр, бүрхүүл</span></a>
+          <a href="#icons"><span>09</span><span>Дүрс</span></a>
+          <a href="#components"><span>10</span><span>Компонент</span></a>
+          <a href="#sections"><span>11</span><span>Хэсгүүд</span></a>
+          <a href="#motion"><span>12</span><span>Хөдөлгөөн</span></a>
+        </nav>
+      </div>
+    </section>
+
+    <!-- 01 Principles ===================================================== -->
+    <section class="section surface-light sg-section" id="principles">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">01</p>
+          <h2 class="h2">Зарчим</h2>
+        </div>
+        <div class="sg-principles">
+          <div class="bracket" data-bracket>
+            <p class="figure-num">1</p>
+            <h3>Нэг accent</h3>
+            <p class="sg-prose">Мөсөн саарал, бэх хар хоёр гэр бүл дээр ганц cyan accent. Accent бол дохио: гарчгийн цэг, доорх зураас, идэвхтэй төлөв, hover-ийн дүүргэлт.</p>
+          </div>
+          <div class="bracket" data-bracket>
+            <p class="figure-num">2</p>
+            <h3>Хоёр фонт, том үсэг</h3>
+            <p class="sg-prose">Гарчиг, тоонд Oswald, бусад бүх текстэд Space Grotesk. Бүх текст том үсгээр. Кирилл үсэг Manrope руу автоматаар шилждэг.</p>
+          </div>
+          <div class="bracket" data-bracket>
+            <p class="figure-num">3</p>
+            <h3>Дугуй булан байхгүй</h3>
+            <p class="sg-prose">Тайрсан (chamfer) булан, шаталсан ёроолтой plate, bracket хүрээ, дөрвөлжин цэг. Хүрээ үргэлж 1px, томруулахад зузаарахгүй.</p>
+          </div>
+          <div class="bracket" data-bracket>
+            <p class="figure-num">4</p>
+            <h3>Пүршин хөдөлгөөн</h3>
+            <p class="sg-prose">Гарч ирэх хөдөлгөөн бүр пүршээр (spring) тооцогдоно, зөвхөн доош гүйлгэхэд тоглоно. Багасгасан хөдөлгөөний тохиргоонд бүх зүйл эцсийн төлөвтэйгээ шууд харагдана.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 Brand ========================================================== -->
+    <section class="section surface-light sg-section" id="brand">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">02</p>
+          <h2 class="h2">Брэнд</h2>
+          <p class="sg-prose">Tesla wordmark (<code>assets/icons/tesla-wordmark.svg</code>, 342 × 35). Зураг хэлбэрээр ачаалагддаг тул бараан дэвсгэр дээр <code>filter: invert(1)</code>-ээр цагаан болгодог.</p>
+        </div>
+        <div class="sg-grid sg-grid--3">
+          <div>
+            <div class="sg-logo sg-logo--light"><img src="../assets/icons/tesla-wordmark.svg" width="342" height="35" alt="Tesla wordmark, цайвар дэвсгэр дээр"></div>
+            <p class="sg-caption"><strong>Цайвар</strong><code>--background</code></p>
+          </div>
+          <div>
+            <div class="sg-logo sg-logo--dark"><img src="../assets/icons/tesla-wordmark.svg" width="342" height="35" alt="Tesla wordmark, бараан дэвсгэр дээр"></div>
+            <p class="sg-caption"><strong>Бараан</strong><code>--surface-black</code> · invert(1)</p>
+          </div>
+          <div>
+            <div class="sg-logo sg-logo--accent"><img src="../assets/icons/tesla-wordmark.svg" width="342" height="35" alt="Tesla wordmark, accent дэвсгэр дээр"></div>
+            <p class="sg-caption"><strong>Accent</strong><code>--accent</code> · footer-ийн хүрээ</p>
+          </div>
+        </div>
+        <div class="sg-block">
+          <h3 class="sg-block__title">Хэмжээ</h3>
+          <div class="sg-table-wrap">
+            <table class="sg-table">
+              <thead><tr><th>Байрлал</th><th>Өргөн</th><th>Хайрцаг</th><th>Тэмдэглэл</th></tr></thead>
+              <tbody>
+                <tr><td>Header</td><td><code>7.5rem</code></td><td><code>.logo</code> өндөр 2.25rem</td><td>Цайвар дэвсгэр, нүүр хуудас руу холбоостой</td></tr>
+                <tr><td>Footer</td><td><code>7.5rem</code></td><td>Баруун дээд буланд</td><td>Бараан panel дээр invert(1)</td></tr>
+                <tr><td>Нүүр хуудас</td><td><code>120px</code></td><td><code>.logo</code> өндөр 36px</td><td>Хуучин систем (styles.css)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 Color ========================================================== -->
+    <section class="section surface-light sg-section" id="color">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">03</p>
+          <h2 class="h2">Өнгө</h2>
+          <p class="sg-prose">Хоёр шатлалтай. 1-р шат (raw) бол литерал өнгө бичигдэх цорын ганц газар. 2-р шат (role) нь raw токен руу заадаг бөгөөд компонентууд зөвхөн role токен ашиглана.</p>
+        </div>
+
+        <div class="sg-block">
+          <h3 class="sg-block__title">1-р шат · Raw <code>:root</code></h3>
+          <div class="sg-swatches">
+            <div class="sg-swatch"><div class="sg-swatch__chip" style="--chip: var(--raw-ice-50)"></div><span class="sg-swatch__name">ice-50</span><code>--raw-ice-50</code><code class="sg-muted" data-token="--raw-ice-50"></code></div>
+            <div class="sg-swatch"><div class="sg-swatch__chip" style="--chip: var(--raw-ice-100)"></div><span class="sg-swatch__name">ice-100</span><code>--raw-ice-100</code><code class="sg-muted" data-token="--raw-ice-100"></code></div>
+            <div class="sg-swatch"><div class="sg-swatch__chip" style="--chip: var(--raw-ice-200)"></div><span class="sg-swatch__name">ice-200</span><code>--raw-ice-200</code><code class="sg-muted" data-token="--raw-ice-200"></code></div>
+            <div class="sg-swatch"><div class="sg-swatch__chip" style="--chip: var(--raw-steel-400)"></div><span class="sg-swatch__name">steel-400</span><code>--raw-steel-400</code><code class="sg-muted" data-token="--raw-steel-400"></code></div>
+            <div class="sg-swatch"><div class="sg-swatch__chip" style="--chip: var(--raw-ink-950)"></div><span class="sg-swatch__name">ink-950</span><code>--raw-ink-950</code><code class="sg-muted" data-token="--raw-ink-950"></code></div>
+            <div class="sg-swatch"><div class="sg-swatch__chip" style="--chip: var(--raw-ink-900)"></div><span class="sg-swatch__name">ink-900</span><code>--raw-ink-900</code><code class="sg-muted" data-token="--raw-ink-900"></code></div>
+            <div class="sg-swatch"><div class="sg-swatch__chip" style="--chip: var(--raw-ink-800)"></div><span class="sg-swatch__name">ink-800</span><code>--raw-ink-800</code><code class="sg-muted" data-token="--raw-ink-800"></code></div>
+            <div class="sg-swatch"><div class="sg-swatch__chip" style="--chip: var(--raw-ink-700)"></div><span class="sg-swatch__name">ink-700</span><code>--raw-ink-700</code><code class="sg-muted" data-token="--raw-ink-700"></code></div>
+            <div class="sg-swatch"><div class="sg-swatch__chip" style="--chip: var(--raw-ink-a35)"></div><span class="sg-swatch__name">ink 35%</span><code>--raw-ink-a35</code><code class="sg-muted" data-token="--raw-ink-a35"></code></div>
+            <div class="sg-swatch"><div class="sg-swatch__chip" style="--chip: var(--raw-cyan-400)"></div><span class="sg-swatch__name">cyan-400</span><code>--raw-cyan-400</code><code class="sg-muted" data-token="--raw-cyan-400"></code></div>
+            <div class="sg-swatch"><div class="sg-swatch__chip" style="--chip: var(--raw-cyan-a25)"></div><span class="sg-swatch__name">cyan 25%</span><code>--raw-cyan-a25</code><code class="sg-muted" data-token="--raw-cyan-a25"></code></div>
+            <div class="sg-swatch"><div class="sg-swatch__chip" style="--chip: var(--raw-white)"></div><span class="sg-swatch__name">white</span><code>--raw-white</code><code class="sg-muted" data-token="--raw-white"></code></div>
+          </div>
+        </div>
+
+        <div class="sg-block">
+          <h3 class="sg-block__title">2-р шат · Role</h3>
+          <div class="sg-table-wrap">
+            <table class="sg-table">
+              <thead><tr><th>Токен</th><th>Raw</th><th>Утга</th><th>Хэрэглээ</th></tr></thead>
+              <tbody>
+                <tr><td><span class="sg-dot" style="--chip: var(--background)"></span><code>--background</code></td><td><code>ice-50</code></td><td><code data-token="--background"></code></td><td>Цайвар гадаргуу, хуудасны дэвсгэр</td></tr>
+                <tr><td><span class="sg-dot" style="--chip: var(--foreground)"></span><code>--foreground</code></td><td><code>ink-950</code></td><td><code data-token="--foreground"></code></td><td>Цайвар дээрх үндсэн текст</td></tr>
+                <tr><td><span class="sg-dot" style="--chip: var(--foreground-muted)"></span><code>--foreground-muted</code></td><td><code>ink 35%</code></td><td><code data-token="--foreground-muted"></code></td><td>Цайвар дээрх бүдэг текст</td></tr>
+                <tr><td><span class="sg-dot" style="--chip: var(--surface-black)"></span><code>--surface-black</code></td><td><code>ink-950</code></td><td><code data-token="--surface-black"></code></td><td>Бараан гадаргуу, footer panel, stack сүүдэр</td></tr>
+                <tr><td><span class="sg-dot" style="--chip: var(--surface-dark)"></span><code>--surface-dark</code></td><td><code>ink-900</code></td><td><code data-token="--surface-dark"></code></td><td>Chamfer товчны их бие</td></tr>
+                <tr><td><span class="sg-dot" style="--chip: var(--surface-dark-raised)"></span><code>--surface-dark-raised</code></td><td><code>ink-800</code></td><td><code data-token="--surface-dark-raised"></code></td><td>Бараан дээрх tab hover</td></tr>
+                <tr><td><span class="sg-dot" style="--chip: var(--surface-soft)"></span><code>--surface-soft</code></td><td><code>ice-200</code></td><td><code data-token="--surface-soft"></code></td><td>Цайвар tab hover, hero-ийн контур шугам</td></tr>
+                <tr><td><span class="sg-dot" style="--chip: var(--foreground-on-dark)"></span><code>--foreground-on-dark</code></td><td><code>white</code></td><td><code data-token="--foreground-on-dark"></code></td><td>Бараан дээрх гарчиг, утга</td></tr>
+                <tr><td><span class="sg-dot" style="--chip: var(--foreground-on-dark-muted)"></span><code>--foreground-on-dark-muted</code></td><td><code>steel-400</code></td><td><code data-token="--foreground-on-dark-muted"></code></td><td>Бараан дээрх догол мөр, spec шошго</td></tr>
+                <tr><td><span class="sg-dot" style="--chip: var(--foreground-on-dark-faint)"></span><code>--foreground-on-dark-faint</code></td><td><code>литерал</code></td><td><code data-token="--foreground-on-dark-faint"></code></td><td>Slider цэгийн хүрээ, copyright, strip цэг</td></tr>
+                <tr><td><span class="sg-dot" style="--chip: var(--border-muted)"></span><code>--border-muted</code></td><td><code>ice-200</code></td><td><code data-token="--border-muted"></code></td><td>Цайвар дээрх хүрээ, tab жагсаалт</td></tr>
+                <tr><td><span class="sg-dot" style="--chip: var(--border-on-dark)"></span><code>--border-on-dark</code></td><td><code>ink-700</code></td><td><code data-token="--border-on-dark"></code></td><td>Бараан дээрх хүрээ, spec бүлгийн шугам</td></tr>
+                <tr><td><span class="sg-dot" style="--chip: var(--accent)"></span><code>--accent</code></td><td><code>cyan-400</code></td><td><code data-token="--accent"></code></td><td>Дохио: цэг, зураас, идэвхтэй төлөв, footer хүрээ</td></tr>
+                <tr><td><span class="sg-dot" style="--chip: var(--accent-muted)"></span><code>--accent-muted</code></td><td><code>cyan 25%</code></td><td><code data-token="--accent-muted"></code></td><td>Бүдэг accent</td></tr>
+                <tr><td><span class="sg-dot" style="--chip: var(--contour-light)"></span><code>--contour-light</code></td><td><code>литерал</code></td><td><code data-token="--contour-light"></code></td><td>Цайвар хэсгийн контур шугам</td></tr>
+                <tr><td><span class="sg-dot" style="--chip: var(--contour-dark)"></span><code>--contour-dark</code></td><td><code>литерал</code></td><td><code data-token="--contour-dark"></code></td><td>Footer-ийн контур шугам</td></tr>
+                <tr><td><span class="sg-dot" style="--chip: var(--plate-fill)"></span><code>--plate-fill</code></td><td><code>литерал</code></td><td><code data-token="--plate-fill"></code></td><td>Plate-ийн зураг ачаалагдахаас өмнөх дэвсгэр</td></tr>
+                <tr><td><span class="sg-dot" style="--chip: var(--plate-outline)"></span><code>--plate-outline</code></td><td><code>литерал</code></td><td><code data-token="--plate-outline"></code></td><td>Plate-ийн 1px гадна хүрээ</td></tr>
+                <tr><td><span class="sg-dot" style="--chip: var(--rail)"></span><code>--rail</code></td><td><code>литерал</code></td><td><code data-token="--rail"></code></td><td>Strip-ийн тасархай холбогч шугам</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="sg-prose sg-muted" style="margin-top:1.25rem">Тэмдэглэл: «литерал» гэсэн 6 role токен raw шат руу заалгүй шууд өнгөтэй бичигдсэн байна.</p>
+        </div>
+
+        <div class="sg-block">
+          <h3 class="sg-block__title">Гадаргуу <code>.surface-light / .surface-dark</code></h3>
+          <p class="sg-prose" style="margin-bottom:1.5rem">Хэсэг бүр хоёр гадаргуугийн аль нэгийг авна. Гадаргуу нь <code>--surface</code>, <code>--on</code>, <code>--on-muted</code> гэсэн орон нутгийн хувьсагч тодорхойлж, гарчиг, eyebrow, догол мөрийн өнгийг өөрчилнө.</p>
+          <div class="sg-surfaces">
+            <div class="surface-light" style="border:1px solid var(--border-muted)">
+              <p class="eyebrow">Eyebrow</p>
+              <div class="h3">Цайвар гадаргуу</div>
+              <p>Догол мөр: үндсэн бэх өнгөтэй.</p>
+              <p class="sg-caption"><code>--background</code> · <code>--foreground</code></p>
+            </div>
+            <div class="surface-dark">
+              <p class="eyebrow">Eyebrow</p>
+              <div class="h3">Бараан гадаргуу</div>
+              <p>Догол мөр: steel-400 бүдэг өнгөтэй.</p>
+              <p class="sg-caption"><code>--surface-black</code> · <code>--foreground-on-dark</code></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sg-block">
+          <h3 class="sg-block__title">Тодрол (WCAG 2)</h3>
+          <div class="sg-table-wrap">
+            <table class="sg-table">
+              <thead><tr><th>Текст</th><th>Дэвсгэр</th><th>Харьцаа</th><th>Түвшин</th><th>Хаана</th></tr></thead>
+              <tbody>
+                <tr data-contrast="--foreground,--background"><td><code>--foreground</code></td><td><code>--background</code></td><td data-ratio></td><td data-verdict></td><td>Цайвар хэсгийн бүх текст</td></tr>
+                <tr data-contrast="--foreground-on-dark,--surface-black"><td><code>--foreground-on-dark</code></td><td><code>--surface-black</code></td><td data-ratio></td><td data-verdict></td><td>Бараан хэсгийн гарчиг</td></tr>
+                <tr data-contrast="--foreground-on-dark-muted,--surface-black"><td><code>--foreground-on-dark-muted</code></td><td><code>--surface-black</code></td><td data-ratio></td><td data-verdict></td><td>Бараан хэсгийн догол мөр</td></tr>
+                <tr data-contrast="--accent,--surface-black"><td><code>--accent</code></td><td><code>--surface-black</code></td><td data-ratio></td><td data-verdict></td><td>Бараан дээрх h2, eyebrow</td></tr>
+                <tr data-contrast="--accent,--surface-dark"><td><code>--accent</code></td><td><code>--surface-dark</code></td><td data-ratio></td><td data-verdict></td><td>Chamfer товчны бичиг</td></tr>
+                <tr data-contrast="--foreground,--accent"><td><code>--foreground</code></td><td><code>--accent</code></td><td data-ratio></td><td data-verdict></td><td>Chamfer hover, сонгосон tab (бараан)</td></tr>
+                <tr data-contrast="--accent,--background"><td><code>--accent</code></td><td><code>--background</code></td><td data-ratio></td><td data-verdict></td><td>Цайвар дээр зөвхөн цэг, зураас — текстэд биш</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="sg-block">
+          <h3 class="sg-block__title">Нүүр хуудас · хуучин систем <code>css/styles.css</code></h3>
+          <p class="sg-prose sg-muted" style="margin-bottom:1.5rem">Энэ хуудсанд ачаалагддаггүй тул утгууд гараар бичигдсэн, автоматаар шинэчлэгдэхгүй.</p>
+          <div class="sg-table-wrap">
+            <table class="sg-table">
+              <thead><tr><th>Токен</th><th>Утга</th><th>Model 3 дахь ойролцоо</th></tr></thead>
+              <tbody>
+                <tr><td><span class="sg-dot" style="--chip:#fefefe"></span><code>--color-bg</code></td><td><code>#fefefe</code></td><td><code>--background</code></td></tr>
+                <tr><td><span class="sg-dot" style="--chip:#05090c"></span><code>--color-text</code></td><td><code>#05090c</code></td><td><code>--foreground</code></td></tr>
+                <tr><td><span class="sg-dot" style="--chip:#67abe7"></span><code>--color-primary</code></td><td><code>#67abe7</code></td><td><code>--accent</code></td></tr>
+                <tr><td><span class="sg-dot" style="--chip:#4e9be0"></span><code>--color-primary-hover</code></td><td><code>#4e9be0</code></td><td>—</td></tr>
+                <tr><td><span class="sg-dot" style="--chip:rgba(5,9,12,.15)"></span><code>--color-border</code></td><td><code>rgba(5, 9, 12, .15)</code></td><td><code>--border-muted</code></td></tr>
+                <tr><td><code>--font-heading / body</code></td><td><code>Inter / Crimson Text</code></td><td><code>Oswald / Space Grotesk</code></td></tr>
+                <tr><td><code>--radius-md / sm</code></td><td><code>12px / 8px</code></td><td>Булан байхгүй (0)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 Typography ===================================================== -->
+    <section class="section surface-light sg-section" id="type">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">04</p>
+          <h2 class="h2">Үсэг</h2>
+          <p class="sg-prose">Body бүхэлдээ <code>text-transform: uppercase</code>. Хэмжээ бүгд rem-ээр, rem өөрөө дэлгэцийн өргөнөөр хэлбэлздэг (доорх «Root scale»).</p>
+        </div>
+
+        <div class="sg-block">
+          <h3 class="sg-block__title">Фонтын гэр бүл</h3>
+          <div class="sg-family">
+            <div><strong>Display</strong><br><code>--font-display</code><br><code class="sg-muted">Oswald 500 / 700</code></div>
+            <p class="sg-family__sample sg-family__sample--display">Model 3 · 0–60 2.9с</p>
+          </div>
+          <div class="sg-family">
+            <div><strong>UI</strong><br><code>--font-ui</code><br><code class="sg-muted">Space Grotesk 400 / 500 / 700</code></div>
+            <p class="sg-family__sample sg-family__sample--ui">Range 363 mi · Order now</p>
+          </div>
+          <div class="sg-family">
+            <div><strong>Кирилл fallback</strong><br><code>--font-ui</code> 2-р фонт<br><code class="sg-muted">Manrope 400 / 500 / 700</code></div>
+            <p class="sg-family__sample sg-family__sample--cyr">Явах зай · Захиалах</p>
+          </div>
+          <p class="sg-prose sg-muted" style="margin-top:1rem">Space Grotesk-д кирилл үсэг байхгүй тул монгол текст Manrope-оор, Oswald-ын кирилл өөрийнхөөрөө гарна.</p>
+        </div>
+
+        <div class="sg-block">
+          <h3 class="sg-block__title">Хэмжээний шатлал <code>1rem = <span data-rem></span> (дэлгэц <span data-vw></span>)</code></h3>
+          <div class="sg-type-row"><code>--type-impact</code><code><span data-token="--type-impact"></span> · <span data-px="--type-impact"></span></code><p class="sg-type-row__sample sg-type-row__sample--display" style="font-size:var(--type-impact)">Model 3</p></div>
+          <div class="sg-type-row"><code>--type-display-lg</code><code><span data-token="--type-display-lg"></span> · <span data-px="--type-display-lg"></span></code><p class="sg-type-row__sample sg-type-row__sample--display" style="font-size:var(--type-display-lg)">Display LG</p></div>
+          <div class="sg-type-row"><code>--type-display-sm</code><code><span data-token="--type-display-sm"></span> · <span data-px="--type-display-sm"></span></code><p class="sg-type-row__sample sg-type-row__sample--display" style="font-size:var(--type-display-sm)">Хэсгийн гарчиг</p></div>
+          <div class="sg-type-row"><code>--type-display</code><code><span data-token="--type-display"></span> · <span data-px="--type-display"></span></code><p class="sg-type-row__sample sg-type-row__sample--display" style="font-size:var(--type-display)">Footer холбоос</p></div>
+          <div class="sg-type-row"><code>--type-heading</code><code><span data-token="--type-heading"></span> · <span data-px="--type-heading"></span></code><p class="sg-type-row__sample sg-type-row__sample--display" style="font-size:var(--type-heading)">H3 · 363</p></div>
+          <div class="sg-type-row"><code>--type-year</code><code><span data-token="--type-year"></span> · <span data-px="--type-year"></span></code><p class="sg-type-row__sample sg-type-row__sample--display" style="font-size:var(--type-year)">2026</p></div>
+          <div class="sg-type-row"><code>--type-title</code><code><span data-token="--type-title"></span> · <span data-px="--type-title"></span></code><p class="sg-type-row__sample" style="font-size:var(--type-title);font-weight:700">Картын гарчиг</p></div>
+          <div class="sg-type-row"><code>--type-lead</code><code><span data-token="--type-lead"></span> · <span data-px="--type-lead"></span></code><p class="sg-type-row__sample" style="font-size:var(--type-lead)">Тэргүүлэх текст</p></div>
+          <div class="sg-type-row"><code>--type-label</code><code><span data-token="--type-label"></span> · <span data-px="--type-label"></span></code><p class="sg-type-row__sample" style="font-size:var(--type-label);font-weight:700">Товч, цэс</p></div>
+          <div class="sg-type-row"><code>--type-body</code><code><span data-token="--type-body"></span> · <span data-px="--type-body"></span></code><p class="sg-type-row__sample" style="font-size:var(--type-body)">Үндсэн текст</p></div>
+          <div class="sg-type-row"><code>--type-eyebrow</code><code><span data-token="--type-eyebrow"></span> · <span data-px="--type-eyebrow"></span></code><p class="sg-type-row__sample" style="font-size:var(--type-eyebrow);font-weight:500">Eyebrow, spec шошго</p></div>
+          <p class="sg-prose sg-muted" style="margin-top:1rem"><code>--type-display-lg</code> болон <code>--type-year</code> тодорхойлогдсон боловч одоогоор ямар ч классад ашиглагдаагүй.</p>
+        </div>
+
+        <div class="sg-block">
+          <h3 class="sg-block__title">Мөрийн өндөр, үсгийн зай</h3>
+          <div class="sg-table-wrap">
+            <table class="sg-table">
+              <thead><tr><th>Утга</th><th>Хэрэглээ</th><th>Жишээ</th></tr></thead>
+              <tbody>
+                <tr><td><code>line-height: .95</code></td><td><code>.h1 .h2 .h3</code>, footer холбоос</td><td><span class="h3" style="font-size:1.5rem">Хоёр мөр<br>гарчиг</span></td></tr>
+                <tr><td><code>line-height: .72</code></td><td><code>.figure-num</code>, <code>.bracket-stat dd</code></td><td><span class="figure-num" style="font-size:1.5rem">363</span></td></tr>
+                <tr><td><code>line-height: 1</code></td><td>Товч, картын гарчиг</td><td><strong>Картын гарчиг</strong></td></tr>
+                <tr><td><code>line-height: 1.1</code></td><td>Body, <code>.text-medium</code></td><td>Үндсэн текст</td></tr>
+                <tr><td><code>line-height: 1.4</code></td><td>Footnote</td><td><span style="font-size:var(--type-eyebrow)">Зүүлт тайлбар</span></td></tr>
+                <tr><td><code>letter-spacing: -.02em</code></td><td><code>.eyebrow</code>, stat-ийн жижиг нэгж</td><td><span class="eyebrow">Спорт седан</span></td></tr>
+                <tr><td><code>letter-spacing: -.04em</code></td><td>Spec шошго <code>dt</code></td><td><span style="font-size:var(--type-eyebrow);letter-spacing:-.04em">Явах зай (EPA)</span></td></tr>
+                <tr><td><code>letter-spacing: -.08em</code></td><td>Том тоо</td><td><span class="figure-num" style="font-size:1.5rem">2.9</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="sg-block">
+          <h3 class="sg-block__title">Root scale</h3>
+          <div class="sg-table-wrap">
+            <table class="sg-table">
+              <thead><tr><th>Дэлгэцийн өргөн</th><th>html font-size</th><th>1rem</th></tr></thead>
+              <tbody>
+                <tr><td>≤ 1279px</td><td><code>16px</code></td><td>16px</td></tr>
+                <tr><td>1280 – 1440px</td><td><code>1.111111vw</code></td><td>14.2 – 16px</td></tr>
+                <tr><td>1441 – 1920px</td><td><code>.833333vw</code></td><td>12 – 16px</td></tr>
+                <tr><td>&gt; 1920px</td><td>JS: <code>16 × width / 1920</code></td><td>&gt; 16px</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="sg-block">
+          <h3 class="sg-block__title">Амьд жишээ</h3>
+          <div class="sg-grid">
+            <div class="sg-demo surface-light" data-sg-surface>
+              <div class="sg-examples">
+                <div><h2 class="h1">Model 3</h2><p class="sg-caption"><code>.h1</code> impact</p></div>
+                <div><h2 class="h2">Model 3-тай танилц</h2><p class="sg-caption"><code>.h2</code> · цэг ба accent зураас ::after / ::before</p></div>
+                <div><h3 class="h3">Тав тухтай аялал</h3><p class="sg-caption"><code>.h3</code></p></div>
+              </div>
+            </div>
+            <div class="sg-demo surface-dark" data-sg-surface>
+              <div class="sg-examples">
+                <div><p class="eyebrow">Спорт седан</p><p class="sg-caption"><code>.eyebrow</code></p></div>
+                <div><p class="text-medium">Сарын $439-өөс эхлэх лизинг</p><p class="sg-caption"><code>.text-medium</code></p></div>
+                <div><p>Гэртээ, замд эсвэл очсон газартаа. Цахилгаан байгаа хаана ч цэнэглэнэ.</p><p class="sg-caption">Body <code>p</code></p></div>
+                <div><div class="figure-num">17,034</div><p class="sg-caption"><code>.figure-num</code></p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 Spacing ======================================================== -->
+    <section class="section surface-light sg-section" id="spacing">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">05</p>
+          <h2 class="h2">Зай</h2>
+          <p class="sg-prose">Layout-ийн 3 токен байна. Компонентын доторх зай нь токен биш, доорх давтагдсан rem алхмуудаар бичигддэг.</p>
+        </div>
+
+        <div class="sg-block">
+          <h3 class="sg-block__title">Layout токен</h3>
+          <div class="sg-table-wrap">
+            <table class="sg-table">
+              <thead><tr><th>Токен</th><th>Одоо</th><th>≥ 1280</th><th>≤ 1279</th><th>≤ 767</th><th>Хэрэглээ</th></tr></thead>
+              <tbody>
+                <tr><td><code>--gutter</code></td><td><code data-token="--gutter"></code></td><td>4rem</td><td>2rem</td><td>1.25rem</td><td>Хэсгийн хажуугийн зай</td></tr>
+                <tr><td><code>--section-y</code></td><td><code data-token="--section-y"></code></td><td>8rem</td><td>6rem</td><td>4.5rem</td><td>Хэсгийн дээд, доод зай</td></tr>
+                <tr><td><code>--container</code></td><td><code data-token="--container"></code></td><td colspan="3">80rem</td><td>Агуулгын дээд өргөн</td></tr>
+                <tr><td>Navbar өндөр</td><td>—</td><td colspan="3">5.5rem</td><td><code>.navbar__inner</code></td></tr>
+                <tr><td>Section header доод зай</td><td>—</td><td colspan="3">4rem</td><td><code>.section-header</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="sg-block">
+          <h3 class="sg-block__title">Давтагдсан алхмууд</h3>
+          <div class="sg-space-row"><code>.25rem</code><span class="sg-muted">4px</span><div class="sg-space-bar" style="width:.25rem"></div></div>
+          <div class="sg-space-row"><code>.5rem</code><span class="sg-muted">8px</span><div class="sg-space-bar" style="width:.5rem"></div></div>
+          <div class="sg-space-row"><code>.75rem</code><span class="sg-muted">12px</span><div class="sg-space-bar" style="width:.75rem"></div></div>
+          <div class="sg-space-row"><code>1rem</code><span class="sg-muted">16px</span><div class="sg-space-bar" style="width:1rem"></div></div>
+          <div class="sg-space-row"><code>1.25rem</code><span class="sg-muted">20px</span><div class="sg-space-bar" style="width:1.25rem"></div></div>
+          <div class="sg-space-row"><code>1.5rem</code><span class="sg-muted">24px</span><div class="sg-space-bar" style="width:1.5rem"></div></div>
+          <div class="sg-space-row"><code>2rem</code><span class="sg-muted">32px</span><div class="sg-space-bar" style="width:2rem"></div></div>
+          <div class="sg-space-row"><code>2.5rem</code><span class="sg-muted">40px</span><div class="sg-space-bar" style="width:2.5rem"></div></div>
+          <div class="sg-space-row"><code>4rem</code><span class="sg-muted">64px</span><div class="sg-space-bar" style="width:4rem"></div></div>
+          <div class="sg-space-row"><code>5rem</code><span class="sg-muted">80px</span><div class="sg-space-bar" style="width:5rem"></div></div>
+          <div class="sg-space-row"><code>6rem</code><span class="sg-muted">96px</span><div class="sg-space-bar" style="width:6rem"></div></div>
+          <div class="sg-space-row"><code>8rem</code><span class="sg-muted">128px</span><div class="sg-space-bar" style="width:8rem"></div></div>
+          <p class="sg-prose sg-muted" style="margin-top:1rem">px утга нь 1rem = 16px үед (≤ 1279px болон 1440px дэлгэц).</p>
+        </div>
+
+        <div class="sg-block">
+          <h3 class="sg-block__title">Breakpoint</h3>
+          <div class="sg-table-wrap">
+            <table class="sg-table">
+              <thead><tr><th>Нөхцөл</th><th>Юу өөрчлөгдөх вэ</th></tr></thead>
+              <tbody>
+                <tr><td><code>max-width: 1279px</code></td><td>Hamburger цэс, бүтэн дэлгэцийн nav sheet, hero нэг багана, split ба specs нэг багана, strip 2 багана</td></tr>
+                <tr><td><code>max-width: 1023px</code></td><td>Impact 4.375rem, card grid 2 багана, feature list 1 багана</td></tr>
+                <tr><td><code>max-width: 767px</code></td><td>Гутэр 1.25rem, h2 2.5rem, бүх grid 1 багана, footer мөр урвуу</td></tr>
+                <tr><td><code>max-width: 639px</code></td><td>Impact 3.5rem, stack-ийн scale унтарна</td></tr>
+                <tr><td><code>max-height: 500px</code></td><td>Hero бүтэн өндөр байхаа болино</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 Shape ========================================================== -->
+    <section class="section surface-light sg-section" id="shape">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">06</p>
+          <h2 class="h2">Хэлбэр</h2>
+          <p class="sg-prose"><code>border-radius</code> огт ашиглагддаггүй. Хэлбэр бүгд SVG path эсвэл clip-path-аар хийгддэг бөгөөд JS ачаалах үед элементэд нэмэгдэнэ.</p>
+        </div>
+        <div class="sg-grid sg-grid--3">
+          <div>
+            <div class="sg-demo surface-dark sg-shape">
+              <svg viewBox="0 0 220 50" width="220" height="50" aria-hidden="true"><path class="fill" d="M220 42L212.932 50H0V0H220V42Z"/><path class="stroke" d="M205 49.5H213L219.5 42V36M212 0.5H219.5V7M8 0.5H0.5V7M7.5 49.5H0.5V42.5"/></svg>
+            </div>
+            <p class="sg-caption"><strong>Chamfer</strong>220 × 50 · баруун доод булан 7 × 8 тайрсан · 4 булангийн bracket</p>
+          </div>
+          <div>
+            <div class="sg-demo surface-dark sg-shape">
+              <div class="plate sg-plate-demo" data-plate><div class="plate__fill"><img src="../assets/images/model3/meet-design.webp" width="753" height="875" alt="" loading="lazy"></div></div>
+            </div>
+            <p class="sg-caption"><strong>Plate</strong><code>#plate-clip</code> · ёроолын баруун талд шаталсан ховил · жижиг булан</p>
+          </div>
+          <div>
+            <div class="sg-demo surface-light sg-shape">
+              <div class="bracket" data-bracket style="width:12rem;height:7rem"></div>
+            </div>
+            <p class="sg-caption"><strong>Bracket</strong>.625rem булан · <code>[data-bracket]</code></p>
+          </div>
+          <div>
+            <div class="sg-demo surface-dark sg-shape">
+              <svg viewBox="0 0 277 78" width="277" height="78" aria-hidden="true"><path class="fill" d="M0.5 0.5H276.5V69L268 77.5H0.5Z" style="fill:var(--surface-black)"/><path class="stroke" d="M0.5 0.5H276.5V69L268 77.5H0.5Z"/><line class="stroke" x1="83" y1="0.5" x2="83" y2="77.5"/></svg>
+            </div>
+            <p class="sg-caption"><strong>Stat plate</strong>277 × 78 · баруун доод булан 8.5 тайрсан · дүрсний багана 83</p>
+          </div>
+          <div>
+            <div class="sg-demo surface-dark sg-shape">
+              <div class="sg-square-row" aria-hidden="true"><span class="sg-square sg-square--on"></span><span class="sg-square"></span><span class="sg-square"></span><span class="sg-square--node sg-square"></span></div>
+            </div>
+            <p class="sg-caption"><strong>Дөрвөлжин цэг</strong>Slider цэг .5625rem · strip зангилаа .625rem</p>
+          </div>
+          <div>
+            <div class="sg-demo surface-light sg-shape">
+              <p class="h2" style="margin:0">Цэг</p>
+            </div>
+            <p class="sg-caption"><strong>Гарчгийн цэг</strong><code>.h2::after</code> accent цэг, зураас <code>::before</code></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 Stroke ========================================================= -->
+    <section class="section surface-light sg-section" id="stroke">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">07</p>
+          <h2 class="h2">Шугам</h2>
+          <p class="sg-prose">Бүх хүрээ 1px. SVG шугамууд <code>vector-effect: non-scaling-stroke</code>-той тул сунгахад зузаан нь өөрчлөгдөхгүй.</p>
+        </div>
+        <div class="sg-grid">
+          <div>
+            <div class="sg-demo surface-light sg-stroke"><div class="sg-line sg-line--muted"></div></div>
+            <p class="sg-caption"><strong>Hairline · цайвар</strong><code>1px var(--border-muted)</code> · tab жагсаалт</p>
+          </div>
+          <div>
+            <div class="sg-demo surface-dark sg-stroke"><div class="sg-line sg-line--dark"></div></div>
+            <p class="sg-caption"><strong>Hairline · бараан</strong><code>1px var(--border-on-dark)</code> · spec бүлэг, slider сум</p>
+          </div>
+          <div>
+            <div class="sg-demo surface-dark sg-stroke"><div class="sg-line sg-line--plate"></div><div class="sg-line sg-line--ring"></div></div>
+            <p class="sg-caption"><strong>Plate хүрээ, chamfer ring</strong><code>--plate-outline</code> · accent 25%</p>
+          </div>
+          <div>
+            <div class="sg-demo surface-dark sg-stroke"><div class="sg-line sg-line--rail"></div></div>
+            <p class="sg-caption"><strong>Тасархай rail</strong>7px зураас · 18.45px алхам · <code>--rail</code></p>
+          </div>
+          <div>
+            <div class="sg-demo surface-light sg-stroke"><span class="sg-focus">Focus</span></div>
+            <p class="sg-caption"><strong>Focus ring</strong><code>2px solid var(--accent)</code> · offset 3px</p>
+          </div>
+          <div>
+            <div class="sg-demo surface-light sg-stroke"><span class="sg-underline">Model 3</span></div>
+            <p class="sg-caption"><strong>Доогуур зураас</strong>2px accent · offset .35em (nav), .3em (text-btn)</p>
+          </div>
+          <div>
+            <div class="sg-demo surface-light sg-stroke"><div class="sg-rule"></div></div>
+            <p class="sg-caption"><strong>H2 зураас</strong>1.5rem × .125rem · гарчгаас .75rem доор</p>
+          </div>
+          <div>
+            <div class="sg-demo surface-dark sg-stroke"><img src="../assets/icons/divider.svg" width="1280" height="1" alt="" style="width:100%;height:1px;filter:invert(1);opacity:.5"></div>
+            <p class="sg-caption"><strong>Footer divider</strong><code>divider.svg</code> · invert(1) · 50%</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 Shadow & overlay =============================================== -->
+    <section class="section surface-light sg-section" id="overlay">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">08</p>
+          <h2 class="h2">Сүүдэр, бүрхүүл</h2>
+          <p class="sg-prose"><code>box-shadow</code> ашиглагддаггүй. Гүнийг давхарга, бүрхүүл, canvas чимэглэлээр гаргадаг.</p>
+        </div>
+        <div class="sg-grid">
+          <div>
+            <div class="sg-layer"><img src="../assets/images/model3/meet-efficiency.webp" width="645" height="750" alt="" loading="lazy"><div class="sg-layer__shade"></div></div>
+            <p class="sg-caption"><strong>Stack сүүдэр</strong><code>.stack__shade</code> · <code>--surface-black</code> 0 → 55% гүйлгэхэд</p>
+          </div>
+          <div>
+            <div class="sg-layer surface-light"><img src="../assets/images/model3/hero.webp" width="2000" height="849" alt="" loading="lazy"><div class="sg-layer__ramp"></div></div>
+            <p class="sg-caption"><strong>Hero ramp</strong><code>.hero__ramp</code> · ≤ 1279px · background руу 6 шаттай градиент</p>
+          </div>
+          <div>
+            <div class="sg-layer"><img src="../assets/images/model3/hero.webp" width="2000" height="849" alt="" loading="lazy">
+              <dl class="bracket sg-layer__panel" data-bracket><div class="bracket-stat"><dt>Явах зай (EPA)</dt><dd>363 <small>миль</small></dd></div></dl>
+            </div>
+            <p class="sg-caption"><strong>Hero panel</strong><code>color-mix(background 72%)</code></p>
+          </div>
+          <div>
+            <div class="sg-layer surface-dark" style="display:grid;place-items:center">
+              <div class="plate" data-plate style="width:60%"><div class="plate__fill"></div></div>
+            </div>
+            <p class="sg-caption"><strong>Plate fill</strong><code>--plate-fill</code> · зураг ачаалагдахаас өмнө</p>
+          </div>
+          <div>
+            <div class="sg-canvas-demo section surface-light" data-contour style="padding:2rem">
+              <p class="sg-canvas-demo__label eyebrow">Контур шугам · амьд</p>
+            </div>
+            <p class="sg-caption"><strong>Contour canvas</strong><code>[data-contour]</code> · marching squares · 24fps · <code>--contour-light</code></p>
+          </div>
+          <div>
+            <div class="sg-canvas-demo section surface-dark" data-dissolve style="padding:2rem">
+              <p class="sg-canvas-demo__label eyebrow">Шатрын нэвчилт · гүйлгэж үз</p>
+            </div>
+            <p class="sg-caption"><strong>Dissolve canvas</strong><code>[data-dissolve]</code> · 24px нүд · 6% нь accent</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 Icons ========================================================== -->
+    <section class="section surface-light sg-section" id="icons">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">09</p>
+          <h2 class="h2">Дүрс</h2>
+          <p class="sg-prose">Файл дүрс <code>assets/icons/</code>-д, 24 × 24 үндсэн хэмжээтэй. Чимэглэлийн дүрсүүд <code>model3-motion.js</code> дотор inline SVG-ээр үүсдэг.</p>
+        </div>
+
+        <div class="sg-block">
+          <h3 class="sg-block__title">Файл <code>assets/icons/</code></h3>
+          <div class="sg-icons">
+            <div class="sg-icon"><div class="sg-icon__box sg-icon__box--dark"><img src="../assets/icons/arrow-back.svg" width="24" height="24" alt="" style="width:1.25rem;filter:invert(1)"></div><code>arrow-back.svg</code><span class="sg-caption">24 · slider-ийн «Өмнөх», бараан дээр invert</span></div>
+            <div class="sg-icon"><div class="sg-icon__box sg-icon__box--dark"><img src="../assets/icons/arrow-forward.svg" width="24" height="24" alt="" style="width:1.25rem;filter:invert(1)"></div><code>arrow-forward.svg</code><span class="sg-caption">24 · slider-ийн «Дараах»</span></div>
+            <div class="sg-icon"><div class="sg-icon__box"><img src="../assets/icons/chevron-right.svg" width="24" height="24" alt="" style="width:1.5rem"></div><code>chevron-right.svg</code><span class="sg-caption">24 · text-btn дотор нуугдаж, «→» орлоно</span></div>
+            <div class="sg-icon"><div class="sg-icon__box"><img src="../assets/icons/play-button.svg" width="64" height="64" alt="" style="width:3rem"></div><code>play-button.svg</code><span class="sg-caption">64 · нүүр хуудасны видео</span></div>
+            <div class="sg-icon"><div class="sg-icon__box"><img src="../assets/icons/tesla-wordmark.svg" width="342" height="35" alt=""></div><code>tesla-wordmark.svg</code><span class="sg-caption">342 × 35 · лого</span></div>
+            <div class="sg-icon"><div class="sg-icon__box"><img src="../assets/icons/divider.svg" width="1280" height="1" alt="" style="width:70%;height:1px"></div><code>divider.svg</code><span class="sg-caption">1280 × 1 · footer</span></div>
+          </div>
+        </div>
+
+        <div class="sg-block">
+          <h3 class="sg-block__title">Inline SVG <code>model3-motion.js</code></h3>
+          <div class="sg-icons">
+            <div class="sg-icon"><div class="sg-icon__box sg-icon__box--dark"><svg viewBox="0 0 10.5 10.5" aria-hidden="true"><path d="M0 0.5H10V10.5" stroke="currentColor" fill="none" vector-effect="non-scaling-stroke"/></svg></div><code>bracket__corner</code><span class="sg-caption">10.5 · 4 чиглэлд эргүүлж тавина</span></div>
+            <div class="sg-icon"><div class="sg-icon__box sg-icon__box--dark"><svg viewBox="0 0 13 10.7" aria-hidden="true"><path d="M0 5.35H13M8 10.35L13 5.35L8 0.35" stroke="currentColor" fill="none" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg></div><code>chamfer__arrow</code><span class="sg-caption">13 × 10.7 · .65em</span></div>
+            <div class="sg-icon"><div class="sg-icon__box sg-icon__box--dark"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="16" cy="16" r="14.5"/><circle cx="16" cy="16" r="10"/><circle cx="16" cy="16" r="3"/><path d="M16 13V6M18.85 15.07L25.5 12.9M17.76 18.43L21.9 24.1M14.24 18.43L10.1 24.1M13.15 15.07L6.5 12.9"/></svg></div><code>stat-plate__icon</code><span class="sg-caption">32 · дугуй, 10с-д нэг эргэнэ</span></div>
+            <div class="sg-icon"><div class="sg-icon__box"><span class="text-btn" style="pointer-events:none"><span class="text-btn__deco">[</span>→<span class="text-btn__deco">]</span></span></div><code>text-btn__deco</code><span class="sg-caption">Текст тэмдэгт «[ → ]»</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 Components ===================================================== -->
+    <section class="section surface-light sg-section" id="components">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">10</p>
+          <h2 class="h2">Компонент</h2>
+          <p class="sg-prose">Бүгд бодит класс, бодит скриптээрээ. Баруун доод булангийн товчоор гадаргууг солиорой.</p>
+        </div>
+
+        <!-- Chamfer -->
+        <div class="sg-component">
+          <h3 class="sg-block__title">Chamfer CTA <code>.chamfer[data-chamfer]</code></h3>
+          <div class="sg-demo surface-dark" data-sg-surface>
+            <div class="sg-demo__row">
+              <a class="chamfer" data-chamfer href="#components">Захиалах</a>
+              <a class="chamfer chamfer--ghost" data-chamfer href="#components">Загвар харьцуулах</a>
+            </div>
+          </div>
+          <p class="sg-caption"><strong>Үндсэн</strong>accent бичиг, hover-т accent зүүнээс дүүрч бичиг бэх болно · <strong>Ghost</strong><code>.chamfer--ghost</code> хүрээтэй, цайвар дээр бэх өнгөтэй · min-width 11em · өндөр 2.5em</p>
+        </div>
+
+        <!-- Text button -->
+        <div class="sg-component">
+          <h3 class="sg-block__title">Text button <code>.text-btn[data-text-btn]</code></h3>
+          <div class="sg-demo surface-light" data-sg-surface>
+            <div class="sg-demo__row">
+              <a class="text-btn" data-text-btn href="#components">Үзүүлэлтүүд</a>
+              <a class="text-btn" data-text-btn href="#components">Дэлгэрэнгүй <img class="btn__icon" src="../assets/icons/chevron-right.svg" width="24" height="24" alt=""></a>
+            </div>
+          </div>
+          <p class="sg-caption"><strong>Hover</strong>бараан дээр accent өнгө · цайвар дээр accent доогуур зураас · сум .25rem урагшилна</p>
+        </div>
+
+        <!-- Tabs -->
+        <div class="sg-component">
+          <h3 class="sg-block__title">Tabs <code>.tabs__list [role=tab]</code></h3>
+          <div class="sg-demo surface-light" data-sg-surface>
+            <div data-tabs>
+              <div class="tabs__list" role="tablist" aria-label="Жишээ хувилбар">
+                <button class="tabs__tab" type="button" role="tab" id="sg-tab-a" aria-controls="sg-panel-a" aria-selected="true">Model 3</button>
+                <button class="tabs__tab" type="button" role="tab" id="sg-tab-b" aria-controls="sg-panel-b" aria-selected="false" tabindex="-1">Premium</button>
+                <button class="tabs__tab" type="button" role="tab" id="sg-tab-c" aria-controls="sg-panel-c" aria-selected="false" tabindex="-1">Performance</button>
+              </div>
+              <p class="sg-tabs-panel" role="tabpanel" id="sg-panel-a" aria-labelledby="sg-tab-a">$38,630-аас эхэлнэ</p>
+              <p class="sg-tabs-panel" role="tabpanel" id="sg-panel-b" aria-labelledby="sg-tab-b" hidden>$44,130-аас эхэлнэ</p>
+              <p class="sg-tabs-panel" role="tabpanel" id="sg-panel-c" aria-labelledby="sg-tab-c" hidden>$56,630-аас эхэлнэ</p>
+            </div>
+          </div>
+          <p class="sg-caption"><strong>Сонгосон</strong>цайвар дээр бэх дүүргэлт, бараан дээр accent · сум товчлуураар шилжинэ · <code>main.js</code></p>
+        </div>
+
+        <!-- Bracket stats -->
+        <div class="sg-component">
+          <h3 class="sg-block__title">Bracket stat <code>.bracket .bracket-stat</code></h3>
+          <div class="sg-demo surface-light" data-sg-surface>
+            <dl class="trim__stats">
+              <div class="bracket bracket-stat" data-bracket><dt>Явах зай (EPA)</dt><dd>321 <small>миль</small></dd></div>
+              <div class="bracket bracket-stat" data-bracket><dt>0-60 mph</dt><dd>5.8 <small>с</small></dd></div>
+              <div class="bracket bracket-stat" data-bracket><dt>Ачааны багтаамж</dt><dd>24 <small>ft³</small></dd></div>
+            </dl>
+          </div>
+          <p class="sg-caption"><strong>Бүтэц</strong><code>dt</code> шошго дээр, <code>dd</code> Oswald тоо доор (column-reverse) · бараан дээр шошго accent</p>
+        </div>
+
+        <!-- Stat plate -->
+        <div class="sg-component">
+          <h3 class="sg-block__title">Stat plate <code>.stat-plate[data-stat-plate]</code></h3>
+          <div class="sg-demo surface-dark">
+            <div class="stat-plate" data-stat-plate>
+              <dl class="spec-list">
+                <div><dt>Үндсэн баталгаа</dt><dd>4 жил эсвэл 50,000 миль</dd></div>
+                <div><dt>Батарей ба хөтлөгч</dt><dd>8 жил эсвэл 120,000 миль</dd></div>
+              </dl>
+            </div>
+          </div>
+          <p class="sg-caption"><strong>Зөвхөн бараан</strong>17.3125rem өргөн · зүүн талд эргэдэг дугуйн дүрс</p>
+        </div>
+
+        <!-- Plate / cards -->
+        <div class="sg-component">
+          <h3 class="sg-block__title">Plate, карт <code>.plate .gallery-card .info-card</code></h3>
+          <div class="sg-demo surface-dark" data-sg-surface>
+            <div class="card-grid">
+              <article class="info-card">
+                <div class="plate" data-plate><div class="plate__fill"><img src="../assets/images/model3/affordable-design.webp" width="1600" height="1160" alt="Model 3-ийн минимал дизайн" loading="lazy"></div></div>
+                <h4 class="info-card__title">Төвлөрсөн дизайн</h4>
+                <p>Явалтын чанар, найдвартай байдлыг тэргүүнд тавьсан.</p>
+              </article>
+              <article class="info-card">
+                <div class="plate" data-plate><div class="plate__fill"><img src="../assets/images/model3/affordable-drive.webp" width="1600" height="1160" alt="Model 3 цэнэглэгдэж байна" loading="lazy"></div></div>
+                <h4 class="info-card__title">Хэмнэлттэй жолоодлого</h4>
+                <p>Цэнэглэх нь ихэвчлэн бензин дүүргэхээс хямд.</p>
+              </article>
+              <article class="info-card">
+                <div class="plate plate--contain" data-plate><div class="plate__fill"><img src="../assets/images/model3/specs-standard.webp" width="1827" height="668" alt="Model 3-ийн хэмжээсийн зураг" loading="lazy"></div></div>
+                <h4 class="info-card__title">Plate--contain</h4>
+                <p>Диаграммд: overscan, parallax байхгүй, бүтэн харагдана.</p>
+              </article>
+            </div>
+          </div>
+          <p class="sg-caption"><strong>Hover</strong>зураг 5% дотогш орно · <strong>Гүйлгэх</strong>зураг −10% → 0 parallax · <strong>Харьцаа</strong>711 : 463 үндсэн</p>
+        </div>
+
+        <!-- Slider -->
+        <div class="sg-component">
+          <h3 class="sg-block__title">Slider <code>[data-slider] .gallery-card</code></h3>
+          <div class="sg-demo surface-dark">
+            <div class="slider" data-slider>
+              <div class="slider__track" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Жишээ slider">
+                <article class="gallery-card"><div class="plate" data-plate><div class="plate__fill"><img src="../assets/images/model3/meet-convenience.webp" width="646" height="751" alt="" loading="lazy"></div></div><h4 class="gallery-card__title">Тав тух</h4><p>Цахилгаан байгаа хаана ч цэнэглэнэ.</p></article>
+                <article class="gallery-card"><div class="plate" data-plate><div class="plate__fill"><img src="../assets/images/model3/meet-safety.webp" width="646" height="751" alt="" loading="lazy"></div></div><h4 class="gallery-card__title">Аюулгүй байдал</h4><p>Олон аюулгүйн дэр зорчигчдыг хамгаална.</p></article>
+                <article class="gallery-card"><div class="plate" data-plate><div class="plate__fill"><img src="../assets/images/model3/meet-fsd.webp" width="753" height="875" alt="" loading="lazy"></div></div><h4 class="gallery-card__title">FSD</h4><p>Таны хяналт дор туслах жолоодлого.</p></article>
+                <article class="gallery-card"><div class="plate" data-plate><div class="plate__fill"><img src="../assets/images/model3/meet-warranty.webp" width="860" height="1000" alt="" loading="lazy"></div></div><h4 class="gallery-card__title">Баталгаа</h4><p>Батарейд 8 жилийн баталгаа.</p></article>
+                <article class="gallery-card"><div class="plate" data-plate><div class="plate__fill"><img src="../assets/images/model3/meet-efficiency.webp" width="645" height="750" alt="" loading="lazy"></div></div><h4 class="gallery-card__title">Үр ашиг</h4><p>Цэнэг бүрээр аль болох хол.</p></article>
+              </div>
+              <div class="slider__controls">
+                <div class="slider__dots" aria-label="Слайд сонгох"></div>
+                <div class="slider__arrows">
+                  <button class="slider__arrow" type="button" data-slider-prev aria-label="Өмнөх"><img src="../assets/icons/arrow-back.svg" width="24" height="24" alt=""></button>
+                  <button class="slider__arrow" type="button" data-slider-next aria-label="Дараах"><img src="../assets/icons/arrow-forward.svg" width="24" height="24" alt=""></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="sg-caption"><strong>Hover</strong>бусад карт 30% бүдгэрнэ · сум төгсгөлөөс эхэнд эргэж очно · дөрвөлжин цэг</p>
+        </div>
+
+        <!-- Strip -->
+        <div class="sg-component">
+          <h3 class="sg-block__title">Strip <code>.feature-list.strip[data-strip]</code></h3>
+          <div class="sg-demo surface-dark">
+            <div class="feature-list strip" data-strip>
+              <div class="feature-item" data-bracket><h4 class="feature-item__title">Уур амьсгал</h4><p>Явахаасаа өмнө температураа тохируул.</p></div>
+              <div class="feature-item" data-bracket><h4 class="feature-item__title">Утасны түлхүүр</h4><p>Ойртоход автоматаар онгойно.</p></div>
+              <div class="feature-item" data-bracket><h4 class="feature-item__title">Амьтны горим</h4><p>Тэжээвэр амьтныг дулаахан байлгана.</p></div>
+              <div class="feature-item" data-bracket><h4 class="feature-item__title">Харуулын горим</h4><p>Эргэн тойрныг хянана.</p></div>
+            </div>
+          </div>
+          <p class="sg-caption"><strong>Идэвхтэй</strong>hover эсвэл focus-оор · accent зангилаа, импульс, bracket гарна · тасархай шугам мөлхөнө</p>
+        </div>
+
+        <!-- Spec list -->
+        <div class="sg-component">
+          <h3 class="sg-block__title">Spec бүлэг <code>.spec-group .spec-list</code></h3>
+          <div class="sg-demo surface-dark">
+            <div class="spec-groups">
+              <div class="spec-group">
+                <h4 class="spec-group__title">Хөдөлгөөн</h4>
+                <dl class="spec-list">
+                  <div><dt>Явах зай (EPA)</dt><dd>321 миль (517 км)</dd></div>
+                  <div><dt>Хурдатгал</dt><dd>5.8 с, 0-60 mph</dd></div>
+                  <div><dt>Хөтлөгч</dt><dd>Хойд дугуйн хөтлөгч</dd></div>
+                </dl>
+              </div>
+              <div class="spec-group">
+                <h4 class="spec-group__title">Цэнэглэлт</h4>
+                <dl class="spec-list">
+                  <div><dt>Supercharging дээд хүч</dt><dd>225 kW</dd></div>
+                  <div><dt>Цэнэглэх хурд</dt><dd>15 минутад 170 миль</dd></div>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <p class="sg-caption"><strong>Зөвхөн бараан</strong>2 багана · бүлэг хооронд 1px шугам</p>
+        </div>
+
+        <!-- Section header -->
+        <div class="sg-component">
+          <h3 class="sg-block__title">Section header <code>.section-header</code></h3>
+          <div class="sg-grid">
+            <div class="sg-demo surface-dark" data-sg-surface>
+              <div class="section-header">
+                <p class="eyebrow">Спорт седан</p>
+                <h4 class="h2">Model 3-тай танилц</h4>
+                <p class="text-medium">Бүх Model 3-т стандартаар ирдэг онцлогууд.</p>
+              </div>
+            </div>
+            <div class="sg-demo surface-light" data-sg-surface>
+              <div class="section-header section-header--center">
+                <h4 class="h2">Model 3-ийг судлах</h4>
+                <p class="text-medium">Төвлөрсөн хувилбар.</p>
+              </div>
+            </div>
+          </div>
+          <p class="sg-caption"><strong>Үндсэн</strong>eyebrow + h2 + lead · max 48rem · <strong>Төвд</strong><code>.section-header--center</code>, зураас төвд</p>
+        </div>
+
+        <!-- Structural -->
+        <div class="sg-component">
+          <h3 class="sg-block__title">Бүтцийн компонент</h3>
+          <div class="sg-table-wrap">
+            <table class="sg-table">
+              <thead><tr><th>Компонент</th><th>Класс</th><th>Тайлбар</th></tr></thead>
+              <tbody>
+                <tr><td>Navbar</td><td><code>.navbar</code></td><td>Дээр тогтсон (absolute), 5.5rem. Цэс төвд, CTA нь text-btn. ≤ 1279px-д бүтэн дэлгэцийн sheet болж, мөрүүд пүршээр гарна, Esc-ээр хаагдана. Энэ хуудасны дээд хэсэгт амьдаар байна.</td></tr>
+                <tr><td>Footer</td><td><code>.footer .footer__panel</code></td><td>Accent хүрээн (1.11cqw) дотор бараан panel, контур canvas, Oswald том холбоосууд, үсэг үсгээр гарна.</td></tr>
+                <tr><td>Footnotes</td><td><code>.footnotes</code></td><td>Цайвар, eyebrow хэмжээ, 70% тодрол, accent доогуур зураастай холбоос.</td></tr>
+                <tr><td>Sticky stack</td><td><code>.stack .stack__item</code></td><td>Давхарга бүр наалдаж, дараагийнх нь дээгүүр гарахад 0.9 хүртэл жижгэрч бараан сүүдэрт орно.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 Sections ======================================================= -->
+    <section class="section surface-light sg-section" id="sections">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">11</p>
+          <h2 class="h2">Хэсгүүд</h2>
+        </div>
+
+        <div class="sg-block">
+          <h3 class="sg-block__title">Model 3 <code>model3.html</code></h3>
+          <div class="sg-table-wrap">
+            <table class="sg-table">
+              <thead><tr><th>#</th><th>Хэсэг</th><th>Гадаргуу</th><th>Компонент</th><th>Тайлбар</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td><a href="../model3.html">Hero</a></td><td>Цайвар</td><td>plate, bracket stat, chamfer, text-btn</td><td>Stack-ийн 1-р давхарга, контур дэвсгэр, төвд том plate</td></tr>
+                <tr><td>2</td><td>Model 3-тай танилц</td><td>Бараан</td><td>section header, slider, gallery card</td><td>Stack 2-р давхарга, 6 карт</td></tr>
+                <tr><td>3</td><td><a href="../model3.html#trims">Хувилбар</a></td><td>Цайвар</td><td>tabs, plate, bracket stat, chamfer ×2</td><td>Stack 3-р давхарга, 3 хувилбар</td></tr>
+                <tr><td>4</td><td>Хамгийн боломжийн</td><td>Бараан</td><td>wide plate, card grid</td><td>3 info card</td></tr>
+                <tr><td>5</td><td>Салон</td><td>Цайвар</td><td>split, split--reverse</td><td>Ээлжилсэн 3 мөр</td></tr>
+                <tr><td>6</td><td>Үргэлж холбоотой</td><td>Бараан</td><td>strip</td><td>4 онцлог, тасархай холбогч</td></tr>
+                <tr><td>7</td><td>Аюулгүй байдал</td><td>Цайвар</td><td>split, text-btn</td><td>Нэг мөр</td></tr>
+                <tr><td>8</td><td>Бие даасан жолоодлого</td><td>Цайвар</td><td>feature-list--3</td><td>3 bracket онцлог</td></tr>
+                <tr><td>9</td><td><a href="../model3.html#specs">Техникийн үзүүлэлт</a></td><td>Бараан</td><td>tabs, plate--contain, spec group, stat plate</td><td>Наалддаг зураг, 3 хувилбар</td></tr>
+                <tr><td>10</td><td>Төгсгөлийн CTA</td><td>Цайвар</td><td>h1, plate, chamfer ×2</td><td>Хоёр багана</td></tr>
+                <tr><td>11</td><td>Зүүлт</td><td>Цайвар</td><td>footnotes</td><td>4 тайлбар, эх сурвалж</td></tr>
+                <tr><td>12</td><td>Footer</td><td>Бараан / accent</td><td>footer</td><td>Accent хүрээтэй panel</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="sg-block">
+          <h3 class="sg-block__title">Нүүр <code>index.html · styles.css</code></h3>
+          <div class="sg-table-wrap">
+            <table class="sg-table">
+              <thead><tr><th>#</th><th>Хэсэг</th><th>Компонент</th><th>Тайлбар</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td><a href="../index.html">Hero</a></td><td>media--dim, btn ×2</td><td>Бүтэн өргөн зураг, 40% бүрхүүл</td></tr>
+                <tr><td>2</td><td>Бүрэн бие даасан жолоодлого</td><td>feature, stat, lightbox</td><td>Видео thumbnail</td></tr>
+                <tr><td>3</td><td>Одоогийн урамшуулал</td><td>slider, offer card</td><td>6 карт, 2 нь бодит</td></tr>
+                <tr><td>4</td><td>Санал болгох</td><td>cta-card</td><td>Зураг баруун талд</td></tr>
+                <tr><td>5</td><td>Хувьцаа эзэмшигчдийн хурал</td><td>cta-card</td><td>Roadster зураг</td></tr>
+                <tr><td>6</td><td>Цэнэглэх цэг</td><td>charging map</td><td>Бүтэн өргөн газрын зураг</td></tr>
+                <tr><td>7</td><td>Миний байршил</td><td>locations, stat</td><td>2 тоон үзүүлэлт</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12 Motion ========================================================= -->
+    <section class="section surface-dark sg-section" id="motion">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">12</p>
+          <h2 class="h2">Хөдөлгөөн</h2>
+          <p class="text-medium sg-prose">Жишээ карт дээр дарж хөдөлгөөнийг дахин тоглуулна. Багасгасан хөдөлгөөний тохиргоонд шилжилт байхгүй, эцсийн төлөв шууд харагдана.</p>
+        </div>
+
+        <div class="sg-block">
+          <h3 class="sg-block__title">Амьд жишээ</h3>
+          <div class="sg-motion-demos">
+            <button class="sg-motion-card" type="button" data-demo="words" aria-label="Гарчиг үгээр гарах хөдөлгөөнийг тоглуулах">
+              <div class="sg-motion-card__stage"><p class="h2" data-demo-target>Үргэлж холбоотой</p></div>
+              <div class="sg-motion-card__meta"><span>Гарчиг · үгээр</span><span>TYPE · 110ms шат</span></div>
+            </button>
+            <button class="sg-motion-card" type="button" data-demo="chars" aria-label="Тоо үсгээр гарах хөдөлгөөнийг тоглуулах">
+              <div class="sg-motion-card__stage"><div class="figure-num" data-demo-target style="font-size:4rem">17,034,842</div></div>
+              <div class="sg-motion-card__meta"><span>Тоо · үсгээр</span><span>FIGURE · 24ms шат</span></div>
+            </button>
+            <button class="sg-motion-card" type="button" data-demo="block" aria-label="Блок гарах хөдөлгөөнийг тоглуулах">
+              <div class="sg-motion-card__stage"><div class="sg-motion-card__box" data-demo-target></div></div>
+              <div class="sg-motion-card__meta"><span>Блок · .75rem</span><span>REVEAL 90 / 26</span></div>
+            </button>
+            <button class="sg-motion-card" type="button" data-demo="copy" aria-label="Текст гарах хөдөлгөөнийг тоглуулах">
+              <div class="sg-motion-card__stage"><p class="text-medium" data-demo-target>Tesla апп-аар машинаа хаанаас ч удирдаарай.</p></div>
+              <div class="sg-motion-card__meta"><span>Текст · .75rem</span><span>COPY 110 / 26</span></div>
+            </button>
+            <button class="sg-motion-card" type="button" data-demo="item" aria-label="Item гарах хөдөлгөөнийг тоглуулах">
+              <div class="sg-motion-card__stage"><div class="sg-motion-card__box" data-demo-target></div></div>
+              <div class="sg-motion-card__meta"><span>Item · 1rem</span><span>ITEM 170 / 24</span></div>
+            </button>
+            <button class="sg-motion-card" type="button" data-demo="figure" aria-label="Зураг гарах хөдөлгөөнийг тоглуулах">
+              <div class="sg-motion-card__stage"><div class="sg-motion-card__box" data-demo-target style="height:5rem"></div></div>
+              <div class="sg-motion-card__meta"><span>Зураг · 1.25rem</span><span>FIGURE 200 / 24</span></div>
+            </button>
+          </div>
+        </div>
+
+        <div class="sg-block">
+          <h3 class="sg-block__title">Каталог <code><span data-motion-count>25</span> хөдөлгөөн</code></h3>
+          <div class="sg-filters">
+            <div class="tabs__list" role="group" aria-label="Төрлөөр шүүх">
+              <button class="tabs__tab" type="button" data-filter="kind" data-value="all" aria-pressed="true">Бүгд</button>
+              <button class="tabs__tab" type="button" data-filter="kind" data-value="macro" aria-pressed="false">Macro</button>
+              <button class="tabs__tab" type="button" data-filter="kind" data-value="micro" aria-pressed="false">Micro</button>
+            </div>
+            <div class="tabs__list" role="group" aria-label="Өдөөгчөөр шүүх">
+              <button class="tabs__tab" type="button" data-filter="trigger" data-value="all" aria-pressed="true">Бүх өдөөгч</button>
+              <button class="tabs__tab" type="button" data-filter="trigger" data-value="scroll" aria-pressed="false">Гүйлгэх</button>
+              <button class="tabs__tab" type="button" data-filter="trigger" data-value="enter" aria-pressed="false">Харагдах</button>
+              <button class="tabs__tab" type="button" data-filter="trigger" data-value="hover" aria-pressed="false">Hover</button>
+              <button class="tabs__tab" type="button" data-filter="trigger" data-value="click" aria-pressed="false">Дарах</button>
+              <button class="tabs__tab" type="button" data-filter="trigger" data-value="loop" aria-pressed="false">Тасралтгүй</button>
+            </div>
+          </div>
+          <div class="sg-table-wrap">
+            <table class="sg-table">
+              <thead><tr><th>#</th><th>Хөдөлгөөн</th><th>Өдөөгч</th><th>Хаана</th><th>Хугацаа, муруй</th><th>Багасгасан</th></tr></thead>
+              <tbody>
+                <tr class="sg-motion-row" data-kind="macro" data-trigger="scroll"><td>1</td><td>Гөлгөр гүйлгэлт (Lenis)</td><td>Гүйлгэх</td><td>Бүх хуудас</td><td>lerp 0.1</td><td>Унтарна</td></tr>
+                <tr class="sg-motion-row" data-kind="macro" data-trigger="scroll"><td>2</td><td>Sticky stack: жижгэрэх + сүүдэр</td><td>Гүйлгэх</td><td>Hero → Танилц → Хувилбар</td><td>scale 1 → 0.9, сүүдэр 0 → 55%</td><td>Scale унтарна, сүүдэр үлдэнэ</td></tr>
+                <tr class="sg-motion-row" data-kind="macro" data-trigger="scroll"><td>3</td><td>Шатрын нэвчилт</td><td>Гүйлгэх</td><td><code>[data-dissolve]</code></td><td>24px нүд, LIFT 2</td><td>Шууд арилна</td></tr>
+                <tr class="sg-motion-row" data-kind="macro" data-trigger="loop"><td>4</td><td>Контур шугам</td><td>Тасралтгүй</td><td><code>[data-contour]</code></td><td>24fps, зөвхөн харагдах үед</td><td>Нэг статик кадр</td></tr>
+                <tr class="sg-motion-row" data-kind="macro" data-trigger="scroll"><td>5</td><td>Plate parallax</td><td>Гүйлгэх</td><td>Бүх plate (contain-аас бусад)</td><td><code>--py</code> −10% → 0</td><td>Унтарна</td></tr>
+                <tr class="sg-motion-row" data-kind="macro" data-trigger="click"><td>6</td><td>Nav sheet мөрүүд</td><td>Дарах</td><td>Цэс, ≤ 1279px</td><td>ROW 170/24, 120ms + 55ms шат</td><td>Шууд</td></tr>
+                <tr class="sg-motion-row" data-kind="micro" data-trigger="enter"><td>7</td><td>Гарчиг үгээр</td><td>Харагдах</td><td><code>[data-split="words"]</code></td><td>TYPE 210/24, 110ms шат, .35em</td><td>Шууд</td></tr>
+                <tr class="sg-motion-row" data-kind="micro" data-trigger="enter"><td>8</td><td>Тоо үсгээр</td><td>Харагдах</td><td><code>[data-split="chars"]</code></td><td>FIGURE 200/24, 24ms шат, .3em</td><td>Шууд</td></tr>
+                <tr class="sg-motion-row" data-kind="micro" data-trigger="enter"><td>9</td><td>H2 accent зураас</td><td>Харагдах</td><td><code>.h2::before</code></td><td>REVEAL 90/26, үгсийн дараа</td><td>Бүтэн</td></tr>
+                <tr class="sg-motion-row" data-kind="micro" data-trigger="enter"><td>10</td><td>Блок</td><td>Харагдах</td><td><code>[data-reveal="block"]</code></td><td>REVEAL 90/26, .75rem</td><td>Шууд</td></tr>
+                <tr class="sg-motion-row" data-kind="micro" data-trigger="enter"><td>11</td><td>Текст</td><td>Харагдах</td><td><code>[data-reveal="copy"]</code></td><td>COPY 110/26, .75rem</td><td>Шууд</td></tr>
+                <tr class="sg-motion-row" data-kind="micro" data-trigger="enter"><td>12</td><td>Item</td><td>Харагдах</td><td><code>[data-reveal="item"]</code></td><td>ITEM 170/24, 1rem</td><td>Шууд</td></tr>
+                <tr class="sg-motion-row" data-kind="micro" data-trigger="enter"><td>13</td><td>Зураг</td><td>Харагдах</td><td><code>[data-reveal="figure"]</code></td><td>FIGURE 200/24, 1.25rem</td><td>Шууд</td></tr>
+                <tr class="sg-motion-row" data-kind="micro" data-trigger="hover"><td>14</td><td>Chamfer дүүргэлт + сум</td><td>Hover / focus</td><td><code>.chamfer</code></td><td>250ms <code>--ease-plate</code></td><td>Хэвээр</td></tr>
+                <tr class="sg-motion-row" data-kind="micro" data-trigger="hover"><td>15</td><td>Text-btn өнгө + сум</td><td>Hover / focus</td><td><code>.text-btn</code></td><td>150ms entrance · сум 250ms plate</td><td>Хэвээр</td></tr>
+                <tr class="sg-motion-row" data-kind="micro" data-trigger="hover"><td>16</td><td>Plate дотогш орох</td><td>Hover</td><td><code>.plate</code></td><td>inset 0 → 5%, 700ms plate</td><td>Хэвээр</td></tr>
+                <tr class="sg-motion-row" data-kind="micro" data-trigger="hover"><td>17</td><td>Gallery бүдгэрэлт</td><td>Hover</td><td><code>.gallery-card</code></td><td>opacity .3, 700ms plate</td><td>Хэвээр</td></tr>
+                <tr class="sg-motion-row" data-kind="micro" data-trigger="loop"><td>18</td><td>Strip тасархай шугам</td><td>Тасралтгүй</td><td><code>.strip__line</code></td><td>5.2с давталт</td><td>Зогсоно</td></tr>
+                <tr class="sg-motion-row" data-kind="micro" data-trigger="loop"><td>19</td><td>Strip импульс</td><td>Тасралтгүй</td><td><code>.feature-item.is-active</code></td><td>3.2с, scale 1 → 2.2</td><td>60% тогтмол</td></tr>
+                <tr class="sg-motion-row" data-kind="micro" data-trigger="loop"><td>20</td><td>Stat plate дугуй</td><td>Тасралтгүй</td><td><code>.stat-plate__icon</code></td><td>10с / эргэлт, 30fps</td><td>Зогсоно</td></tr>
+                <tr class="sg-motion-row" data-kind="micro" data-trigger="hover"><td>21</td><td>Tab hover / сонголт</td><td>Hover / дарах</td><td><code>.tabs__tab</code></td><td>150ms entrance</td><td>Хэвээр</td></tr>
+                <tr class="sg-motion-row" data-kind="micro" data-trigger="hover"><td>22</td><td>Slider цэг, сум</td><td>Hover / дарах</td><td><code>.slider__dot .slider__arrow</code></td><td>150ms</td><td>Хэвээр</td></tr>
+                <tr class="sg-motion-row" data-kind="micro" data-trigger="hover"><td>23</td><td>Nav холбоос</td><td>Hover</td><td><code>.navbar__link</code></td><td>Өнгө 150ms, доогуур зураас шууд</td><td>Хэвээр</td></tr>
+                <tr class="sg-motion-row" data-kind="micro" data-trigger="click"><td>24</td><td>Hamburger → X</td><td>Дарах</td><td><code>.navbar__toggle</code></td><td>250ms plate</td><td>Хэвээр</td></tr>
+                <tr class="sg-motion-row" data-kind="micro" data-trigger="hover"><td>25</td><td>Footer холбоос</td><td>Hover</td><td><code>.footer__links</code></td><td>Өнгө 150ms entrance</td><td>Хэвээр</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="sg-prose" style="margin-top:1.25rem">Нэг дор харагдсан элементүүд 70ms зөрүүтэй ээлжлэн гарна. Дээрээс нь гүйлгэж ирэхэд хөдөлгөөнгүй эцсийн төлөвтэйгөө харагдана.</p>
+        </div>
+
+        <div class="sg-block">
+          <h3 class="sg-block__title">Easing</h3>
+          <div class="sg-table-wrap">
+            <table class="sg-table">
+              <thead><tr><th>Муруй</th><th>Токен</th><th>Утга</th><th>Хэрэглээ</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><svg class="sg-curve" viewBox="-4 -4 108 108" aria-hidden="true"><path class="axis" d="M0 100H100M0 100V0"/><path class="curve" d="M0 100C20 100 0 0 100 0"/></svg></td>
+                  <td><code>--ease-entrance</code></td><td><code data-token="--ease-entrance"></code></td><td>Tab, text-btn өнгө, nav, footer, slider</td>
+                </tr>
+                <tr>
+                  <td><svg class="sg-curve" viewBox="-4 -4 108 108" aria-hidden="true"><path class="axis" d="M0 100H100M0 100V0"/><path class="curve" d="M0 100C33 100 0 0 100 0"/></svg></td>
+                  <td><code>--ease-plate</code></td><td><code data-token="--ease-plate"></code></td><td>Chamfer, сум, plate, gallery, hamburger, strip</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="sg-block">
+          <h3 class="sg-block__title">Пүрш (spring) <code>model3-motion.js · CFG</code></h3>
+          <div class="sg-table-wrap">
+            <table class="sg-table">
+              <thead><tr><th>Нэр</th><th>Хатуулаг k</th><th>Унтраалт c</th><th>Хэрэглээ</th></tr></thead>
+              <tbody>
+                <tr><td><code>REVEAL</code></td><td>90</td><td>26</td><td>Блок, h2 зураас</td></tr>
+                <tr><td><code>COPY</code></td><td>110</td><td>26</td><td>Догол мөр</td></tr>
+                <tr><td><code>ROW</code></td><td>170</td><td>24</td><td>Nav sheet мөр</td></tr>
+                <tr><td><code>ITEM</code></td><td>170</td><td>24</td><td>Карт, item</td></tr>
+                <tr><td><code>FIGURE</code></td><td>200</td><td>24</td><td>Зураг, тоо үсгээр</td></tr>
+                <tr><td><code>TYPE</code></td><td>210</td><td>24</td><td>Гарчиг үгээр</td></tr>
+                <tr><td><code>VEIL · CLEAR · TRIGGER</code></td><td>70 · 140 · 140</td><td>24 · 26 · 30</td><td>Тодорхойлогдсон, одоогоор ашиглагдаагүй</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="sg-prose sg-muted" style="margin-top:1.25rem">Масс 1, 1ms алхамтай интеграц, нэг кадрт дээд тал нь 64ms.</p>
+        </div>
+
+        <div class="sg-block">
+          <h3 class="sg-block__title">Хугацаа</h3>
+          <div class="sg-table-wrap">
+            <table class="sg-table">
+              <thead><tr><th>Токен</th><th>Утга</th><th>Хэрэглээ</th><th style="width:30%">Демо (дарж тоглуул)</th></tr></thead>
+              <tbody>
+                <tr><td><code>--duration-fast</code></td><td><code data-token="--duration-fast"></code></td><td>Өнгө, хүрээ, tab</td><td><button type="button" class="sg-motion-card" style="min-height:0;width:100%;padding:1rem" data-demo="duration" data-ms="150" data-ease="cubic-bezier(0.2, 0, 0, 1)" aria-label="150ms тоглуулах"><span class="sg-duration-bar" data-demo-target style="display:block;width:100%"></span></button></td></tr>
+                <tr><td><code>--duration-normal</code></td><td><code data-token="--duration-normal"></code></td><td>Chamfer, сум, hamburger, strip</td><td><button type="button" class="sg-motion-card" style="min-height:0;width:100%;padding:1rem" data-demo="duration" data-ms="250" data-ease="cubic-bezier(0.33, 0, 0, 1)" aria-label="250ms тоглуулах"><span class="sg-duration-bar" data-demo-target style="display:block;width:100%"></span></button></td></tr>
+                <tr><td><code>--duration-plate</code></td><td><code data-token="--duration-plate"></code></td><td>Plate inset, gallery бүдгэрэлт</td><td><button type="button" class="sg-motion-card" style="min-height:0;width:100%;padding:1rem" data-demo="duration" data-ms="700" data-ease="cubic-bezier(0.33, 0, 0, 1)" aria-label="700ms тоглуулах"><span class="sg-duration-bar" data-demo-target style="display:block;width:100%"></span></button></td></tr>
+                <tr><td>Давталт</td><td><code>3.2с · 5.2с · 10с</code></td><td>Strip импульс, тасархай шугам, дугуй</td><td>—</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__panel surface-dark" data-contour="dark">
+      <div class="container footer__inner">
+        <div class="footer__top">
+          <a class="logo" href="../index.html" aria-label="Нүүр хуудас">
+            <img src="../assets/icons/tesla-wordmark.svg" width="120" height="12" alt="">
+          </a>
+          <ul class="footer__links">
+            <li><a href="../index.html" data-split="chars">Нүүр</a></li>
+            <li><a href="../model3.html" data-split="chars">Model 3</a></li>
+            <li><a href="#principles" data-split="chars">Styleguide</a></li>
+          </ul>
+        </div>
+        <div class="footer__bottom">
+          <img class="footer__divider" src="../assets/icons/divider.svg" width="1280" height="1" alt="">
+          <div class="footer__row">
+            <p>© 2025 Tesla, Inc. All rights reserved.</p>
+            <ul class="footer__legal">
+              <li><a href="#principles">Дээш буцах</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Surface switch -->
+  <div class="sg-switch" role="group" aria-label="Компонентын гадаргуу">
+    <span>Гадаргуу</span>
+    <div class="tabs__list">
+      <button class="tabs__tab" type="button" data-surface-set="light" aria-pressed="false">Цайвар</button>
+      <button class="tabs__tab" type="button" data-surface-set="dark" aria-pressed="false">Бараан</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/model3-motion.js" defer></script>
+  <script src="../js/styleguide.js" defer></script>
+</body>
+</html>
